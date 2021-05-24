@@ -28279,7 +28279,7 @@ try {
             lineNumber: 24,
             columnNumber: 11
           }
-        }, recipe.KeyIngredients), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+        }, recipe.KeyIngredients.join(", ")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
           variant: "outline-dark",
           onClick: () => {
             onBackClick(null);
