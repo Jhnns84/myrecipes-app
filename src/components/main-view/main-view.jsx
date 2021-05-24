@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
@@ -66,14 +68,20 @@ export class MainView extends React.Component {
     if (recipes.length === 0) return <div className="main-view" />;
     
     return (
-      <div className="main-view">
+      <Row className="main-view justify-content-md-center">
         {selectedRecipe
-          ? <RecipeView recipe={selectedRecipe} onBackClick={newSelectedRecipe => { this.setSelectedRecipe(newSelectedRecipe); }}/>
+          ? (
+            <Col md={8}>
+              <RecipeView recipe={selectedRecipe} onBackClick={newSelectedRecipe => { this.setSelectedRecipe(newSelectedRecipe); }} />
+            </Col>
+          )
           : recipes.map(recipe => (
-          <RecipeCard key={recipe._id} recipe={recipe} onRecipeClick={(recipe) => { this.setSelectedRecipe(recipe) }} />
+            <Col md={3}>
+              <RecipeCard key={recipe._id} recipe={recipe} onRecipeClick={(recipe) => { this.setSelectedRecipe(recipe); }} />
+            </Col>
           ))
         }
-      </div>
+      </Row>
     );
   }
 

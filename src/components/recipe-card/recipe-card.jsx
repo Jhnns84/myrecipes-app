@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 export class RecipeCard extends React.Component {
   render() {
     const { recipe, onRecipeClick } = this.props;
     
     return (
-      <div onClick={() => onRecipeClick(recipe)} className="recipe-card">{recipe.Name}</div>
+      <Card bg = 'light'>
+        <Card.Img variant="top" src={recipe.ImagePath} />
+        <Card.Body>
+          <Card.Title>{recipe.Name}</Card.Title>
+          <Card.Text>{recipe.Description}</Card.Text>
+          <Button onClick={() => onRecipeClick(recipe)} variant="outline-dark">Open</Button>
+        </Card.Body>
+      </Card>
     );
   }
 }
