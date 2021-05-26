@@ -1,0 +1,5 @@
+.image-view img {
+  height: 500px; 
+  width: 100%; 
+  object-fit: cover; // this ensures that the image crops instead of stretching
+};

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+
+import { Link } from 'react-router-dom';
 
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
@@ -11,12 +14,23 @@ export function RegistrationView(props) {
   const [ email, setEmail ] = useState('');
   const [ birthday, setBirthday ] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(username, password, email, birthday);
-    /* Send a request to the server for authentication */
-    /* then call props.onRegister(username) */
-    props.onRegister(username);
+  const handleRegister = (e) => {
+    axios.post('https://jm-myrecipes-api.herokuapp.com/login', {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    })
+    .then(response => {
+      const data = response.data;
+      console.log(data); 
+      window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
+    })
+    .catch(e => {
+      console.log('error registering the user')
+    });
+
+    
   };
 
   return (
@@ -25,17 +39,17 @@ export function RegistrationView(props) {
         <Form>
           <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
-            <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+            <Form.Control type="text" placeholder="Enter username" onChange={e => setUsername(e.target.value)} />
           </Form.Group>
 
           <Form.Group controlId="formPassword">
             <Form.Label>Password:</Form.Label>
-            <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+            <Form.Control type="password" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
           </Form.Group>
 
           <Form.Group controlId="formEmail">
             <Form.Label>Email:</Form.Label>
-            <Form.Control type="text" onChange={e => setEmail(e.target.value)} />
+            <Form.Control type="text" placeholder="Enter email" onChange={e => setEmail(e.target.value)} />
           </Form.Group>
 
           <Form.Group controlId="formBirthday">
@@ -43,10 +57,14 @@ export function RegistrationView(props) {
             <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
           </Form.Group>
 
-          <Button variant="primary" type="submit" onClick={handleSubmit}>
+          <Button variant="primary" type="submit" onClick={handleRegister}>
             Submit
           </Button>
         </Form>
+        <h6 className="mt-4" >Already have an account?</h6>
+        <Link to={`/`}>
+            <Button className="mt-2" variant="outline-secondary">Log in here</Button>
+          </Link>
       </Col>
     </Row>
   );
