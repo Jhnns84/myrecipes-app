@@ -15,7 +15,8 @@ export function RegistrationView(props) {
   const [ birthday, setBirthday ] = useState('');
 
   const handleRegister = (e) => {
-    axios.post('https://jm-myrecipes-api.herokuapp.com/login', {
+    e.preventDefault();
+    axios.post('https://jm-myrecipes-api.herokuapp.com/users', {
       Username: username,
       Password: password,
       Email: email,
@@ -30,7 +31,6 @@ export function RegistrationView(props) {
       console.log('error registering the user')
     });
 
-    
   };
 
   return (

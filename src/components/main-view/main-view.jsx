@@ -9,6 +9,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { CuisineView } from '../cuisine-view/cuisine-view';
 import { MealTypeView } from '../mealtype-view/mealtype-view'; 
 import { ProfileView } from '../profile-view/profile-view';
+// import { Navigation } from '../navigation/navigation';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -76,6 +77,7 @@ export class MainView extends React.Component {
     const { recipes, user } = this.state;
     return (
       <Router>
+        {/* <Navigation /> */}
         <div className="text-right">
           <button className="btn btn-outline-dark mb-2 mt-2" onClick={() => { this.onLoggedOut() }}>Logout</button>
         </div>
@@ -134,7 +136,7 @@ export class MainView extends React.Component {
             </Col>
             if (recipes.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <ProfileView user={username.find(m => m.user.Username === match.params.name).Username} onBackClick={() => history.goBack()} />
+              <ProfileView user={user} onBackClick={() => history.goBack()} />
             </Col>
           }} />
 

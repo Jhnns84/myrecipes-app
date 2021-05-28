@@ -26408,7 +26408,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 78,
+            lineNumber: 79,
             columnNumber: 7
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -26416,7 +26416,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79,
+            lineNumber: 81,
             columnNumber: 9
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("button", {
@@ -26427,7 +26427,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80,
+            lineNumber: 82,
             columnNumber: 11
           }
         }, "Logout")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapRowDefault.default, {
@@ -26435,7 +26435,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82,
+            lineNumber: 84,
             columnNumber: 9
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26447,7 +26447,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 84,
+                  lineNumber: 86,
                   columnNumber: 31
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_loginViewLoginView.LoginView, {
@@ -26455,7 +26455,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 85,
+                  lineNumber: 87,
                   columnNumber: 13
                 }
               }))
@@ -26466,7 +26466,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 87,
+                  lineNumber: 89,
                   columnNumber: 46
                 }
               })
@@ -26478,7 +26478,7 @@ try {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 89,
+                lineNumber: 91,
                 columnNumber: 15
               }
             }, /*#__PURE__*/_reactDefault.default.createElement(_recipeCardRecipeCard.RecipeCard, {
@@ -26486,7 +26486,7 @@ try {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 90,
+                lineNumber: 92,
                 columnNumber: 17
               }
             })));
@@ -26494,7 +26494,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83,
+            lineNumber: 85,
             columnNumber: 11
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26506,7 +26506,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 95,
+                  lineNumber: 97,
                   columnNumber: 30
                 }
               })
@@ -26516,14 +26516,14 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 96,
+                  lineNumber: 98,
                   columnNumber: 20
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_registrationViewRegistrationView.RegistrationView, {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 97,
+                  lineNumber: 99,
                   columnNumber: 13
                 }
               }))
@@ -26532,7 +26532,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 94,
+            lineNumber: 96,
             columnNumber: 11
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26543,7 +26543,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 102,
+                  lineNumber: 104,
                   columnNumber: 31
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_loginViewLoginView.LoginView, {
@@ -26551,7 +26551,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 103,
+                  lineNumber: 105,
                   columnNumber: 13
                 }
               }))
@@ -26562,7 +26562,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 105,
+                  lineNumber: 107,
                   columnNumber: 46
                 }
               })
@@ -26573,7 +26573,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 106,
+                  lineNumber: 108,
                   columnNumber: 20
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_recipeViewRecipeView.RecipeView, {
@@ -26582,7 +26582,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 107,
+                  lineNumber: 109,
                   columnNumber: 15
                 }
               }))
@@ -26591,7 +26591,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 101,
+            lineNumber: 103,
             columnNumber: 11
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26602,7 +26602,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 112,
+                  lineNumber: 114,
                   columnNumber: 31
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_loginViewLoginView.LoginView, {
@@ -26610,7 +26610,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 113,
+                  lineNumber: 115,
                   columnNumber: 13
                 }
               }))
@@ -26621,7 +26621,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 115,
+                  lineNumber: 117,
                   columnNumber: 46
                 }
               })
@@ -26632,7 +26632,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 116,
+                  lineNumber: 118,
                   columnNumber: 20
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_cuisineViewCuisineView.CuisineView, {
@@ -26641,7 +26641,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 117,
+                  lineNumber: 119,
                   columnNumber: 15
                 }
               }))
@@ -26650,7 +26650,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 111,
+            lineNumber: 113,
             columnNumber: 11
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26661,7 +26661,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 122,
+                  lineNumber: 124,
                   columnNumber: 31
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_loginViewLoginView.LoginView, {
@@ -26669,7 +26669,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 123,
+                  lineNumber: 125,
                   columnNumber: 13
                 }
               }))
@@ -26680,7 +26680,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 125,
+                  lineNumber: 127,
                   columnNumber: 46
                 }
               })
@@ -26691,7 +26691,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 126,
+                  lineNumber: 128,
                   columnNumber: 20
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_mealtypeViewMealtypeView.MealTypeView, {
@@ -26700,7 +26700,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 127,
+                  lineNumber: 129,
                   columnNumber: 15
                 }
               }))
@@ -26709,7 +26709,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121,
+            lineNumber: 123,
             columnNumber: 11
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26720,7 +26720,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 132,
+                  lineNumber: 134,
                   columnNumber: 31
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_loginViewLoginView.LoginView, {
@@ -26728,7 +26728,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 133,
+                  lineNumber: 135,
                   columnNumber: 13
                 }
               }))
@@ -26739,7 +26739,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 135,
+                  lineNumber: 137,
                   columnNumber: 46
                 }
               })
@@ -26750,16 +26750,16 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 136,
+                  lineNumber: 138,
                   columnNumber: 20
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_profileViewProfileView.ProfileView, {
-                user: username.find(m => m.user.Username === match.params.name).Username,
+                user: user,
                 onBackClick: () => history.goBack(),
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 137,
+                  lineNumber: 139,
                   columnNumber: 15
                 }
               }))
@@ -26768,7 +26768,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 131,
+            lineNumber: 133,
             columnNumber: 11
           }
         })))
@@ -34925,7 +34925,8 @@ try {
     const [email, setEmail] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
     const handleRegister = e => {
-      _axiosDefault.default.post('https://jm-myrecipes-api.herokuapp.com/login', {
+      e.preventDefault();
+      _axiosDefault.default.post('https://jm-myrecipes-api.herokuapp.com/users', {
         Username: username,
         Password: password,
         Email: email,
@@ -35275,63 +35276,210 @@ try {
   });
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactBootstrapForm = require('react-bootstrap/Form');
+  var _reactBootstrapFormDefault = _parcelHelpers.interopDefault(_reactBootstrapForm);
   var _reactBootstrapButton = require('react-bootstrap/Button');
   var _reactBootstrapButtonDefault = _parcelHelpers.interopDefault(_reactBootstrapButton);
-  var _reactBootstrapCard = require('react-bootstrap/Card');
-  var _reactBootstrapCardDefault = _parcelHelpers.interopDefault(_reactBootstrapCard);
-  require('react-bootstrap/Row');
-  require('react-bootstrap/Col');
+  var _reactBootstrapRow = require('react-bootstrap/Row');
+  var _reactBootstrapRowDefault = _parcelHelpers.interopDefault(_reactBootstrapRow);
+  var _reactBootstrapCol = require('react-bootstrap/Col');
+  var _reactBootstrapColDefault = _parcelHelpers.interopDefault(_reactBootstrapCol);
+  require('prop-types');
+  var _axios = require('axios');
+  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
   require('react-router-dom');
-  var _jsxFileName = "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx";
-  class ProfileView extends _reactDefault.default.Component {
-    render() {
-      const {user, onBackClick} = this.props;
-      return (
-        /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapCardDefault.default, {
-          bg: "light",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 15,
-            columnNumber: 7
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapCardDefault.default.Body, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 16,
-            columnNumber: 9
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapCardDefault.default.Title, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 17,
-            columnNumber: 11
-          }
-        }, user.Userame), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
-          className: "mt-4",
-          variant: "outline-dark",
-          onClick: () => {
-            onBackClick(null);
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 19,
-            columnNumber: 11
-          }
-        }, "Back")))
-      );
-    }
+  var _jsxFileName = "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx", _s = $RefreshSig$();
+  function ProfileView(props) {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [email, setEmail] = _react.useState('');
+    const [birthday, setBirthday] = _react.useState('');
+    const handleChange = e => {
+      e.preventDefault();
+      _axiosDefault.default.put(`https://jm-myrecipes-api.herokuapp.com/users${user}`, {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
+      }).then(response => {
+        const data = response.data;
+        console.log(data);
+        window.open('/', '_self');
+      }).catch(e => {
+        console.log('error registering the user');
+      });
+    };
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapRowDefault.default, {
+        className: "main-view justify-content-md-center",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
+        md: 12,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
+        className: "mb-4",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39,
+          columnNumber: 9
+        }
+      }, "User Profile"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
+        md: 6,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 42,
+          columnNumber: 11
+        }
+      }, "Change user details"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formUsername",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 43,
+          columnNumber: 11
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 44,
+          columnNumber: 13
+        }
+      }, "Username:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "text",
+        placeholder: "Change username",
+        onChange: e => setUsername(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 45,
+          columnNumber: 13
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formPassword",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 48,
+          columnNumber: 11
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 49,
+          columnNumber: 13
+        }
+      }, "Password:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "password",
+        placeholder: "Change password",
+        onChange: e => setPassword(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50,
+          columnNumber: 13
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formEmail",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 53,
+          columnNumber: 11
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 54,
+          columnNumber: 13
+        }
+      }, "Email:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "text",
+        placeholder: "Change email",
+        onChange: e => setEmail(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55,
+          columnNumber: 13
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formBirthday",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 58,
+          columnNumber: 11
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 59,
+          columnNumber: 13
+        }
+      }, "Birthday:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "date",
+        onChange: e => setBirthday(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 60,
+          columnNumber: 13
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+        variant: "primary",
+        type: "submit",
+        onClick: handleChange,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63,
+          columnNumber: 11
+        }
+      }, "Submit")))))
+    );
   }
+  _s(ProfileView, "oodxkowr8L/+sgf0pg4pF6PrtNw=");
+  _c = ProfileView;
+  var _c;
+  $RefreshReg$(_c, "ProfileView");
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","react-router-dom":"1PMSK","@parcel/transformer-js/lib/esmodule-helpers.js":"1flay","../../../../../../../../../../home/jhnnsm84/.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3W8VV"}],"3Mt3t":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","react-router-dom":"1PMSK","@parcel/transformer-js/lib/esmodule-helpers.js":"1flay","../../../../../../../../../../home/jhnnsm84/.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3W8VV","react-bootstrap/Form":"6A5ko","prop-types":"4dfy5","axios":"7rA65"}],"3Mt3t":[function(require,module,exports) {
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
