@@ -45,6 +45,5 @@ RecipeCard.propTypes = {
     ImagePath: PropTypes.string,
     KeyIngredients: PropTypes.array,
     Featured: PropTypes.bool
-  }).isRequired,
-  onRecipeClick: PropTypes.func.isRequired
+  }).isRequired
 };

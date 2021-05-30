@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -13,9 +13,14 @@ export function RegistrationView(props) {
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ birthday, setBirthday ] = useState('');
+  const formRef = useRef(null);
 
   const handleRegister = (e) => {
     e.preventDefault();
+
+    formRef.current.reportValidity();
+    console.log(formRef.current.reportValidity());
+
     axios.post('https://jm-myrecipes-api.herokuapp.com/users', {
       Username: username,
       Password: password,
@@ -36,25 +41,26 @@ export function RegistrationView(props) {
   return (
     <Row className="main-view justify-content-md-center">
       <Col md={6}>
-        <Form>
+      <h2>Register to continue</h2>
+      <Form ref={formRef} onSubmit={e => e.preventDefault()}>
           <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
-            <Form.Control type="text" placeholder="Enter username" onChange={e => setUsername(e.target.value)} />
+            <Form.Control type="text" placeholder="Enter username" onChange={e => setUsername(e.target.value)} required />
           </Form.Group>
 
           <Form.Group controlId="formPassword">
             <Form.Label>Password:</Form.Label>
-            <Form.Control type="password" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
+            <Form.Control type="password" placeholder="Enter password" onChange={e => setPassword(e.target.value)} required />
           </Form.Group>
 
           <Form.Group controlId="formEmail">
             <Form.Label>Email:</Form.Label>
-            <Form.Control type="text" placeholder="Enter email" onChange={e => setEmail(e.target.value)} />
+            <Form.Control type="text" placeholder="Enter email" onChange={e => setEmail(e.target.value)} required />
           </Form.Group>
 
           <Form.Group controlId="formBirthday">
             <Form.Label>Birthday:</Form.Label>
-            <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
+            <Form.Control type="date" onChange={e => setBirthday(e.target.value)} required />
           </Form.Group>
 
           <Button variant="primary" type="submit" onClick={handleRegister}>

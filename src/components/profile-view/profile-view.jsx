@@ -30,14 +30,27 @@ export function ProfileView(props) {
     .catch(e => {
       console.log('error registering the user')
     });
+  };
 
+  const deleteUser = (e) => {
+    e.preventDefault();
+    axios.delete(`https://jm-myrecipes-api.herokuapp.com/users${user}`)
+    .then(response => {
+      const data = response.data;
+      props.onLoggedOut(data);
+      console.log(data); 
+      window.open('/login', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
+    })
+    .catch(e => {
+      console.log('error registering the user')
+    });
   };
 
   return (
     <Row className="main-view justify-content-md-center">
       <Col md={12}>
         <h1 className="mb-4">User Profile</h1>
-        <Col md={6}>
+        <Col md={8}>
         <Form>
           <h4>Change user details</h4>
           <Form.Group controlId="formUsername">
@@ -64,6 +77,12 @@ export function ProfileView(props) {
             Submit
           </Button>
         </Form>
+        <div className="mt-4">
+          <h4>Delete user profile</h4>
+        </div>
+        <Button variant="danger" type="submit" onClick={deleteUser}>
+          Delete
+        </Button>
           </Col>
       </Col>
     </Row>

@@ -9,7 +9,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { CuisineView } from '../cuisine-view/cuisine-view';
 import { MealTypeView } from '../mealtype-view/mealtype-view'; 
 import { ProfileView } from '../profile-view/profile-view';
-// import { Navigation } from '../navigation/navigation';
+import { Navigation } from '../navigation/navigation';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -77,22 +77,29 @@ export class MainView extends React.Component {
     const { recipes, user } = this.state;
     return (
       <Router>
-        {/* <Navigation /> */}
-        <div className="text-right">
-          <button className="btn btn-outline-dark mb-2 mt-2" onClick={() => { this.onLoggedOut() }}>Logout</button>
-        </div>
         <Row className="main-view justify-content-md-center">
+          
           <Route exact path="/" render={() => {
             if (!user) return <Col>
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (recipes.length === 0) return <div className="main-view" />;
-            return recipes.map(m => (
-              <Col md={3} className="mb-4" key={m._id}>
-                <RecipeCard recipe={m} />
-              </Col>
-            ))
+            if (user) return (
+              <>
+                <Row>
+                  <Navigation onLogOut={() => { this.onLoggedOut() }} />
+                </Row>
+                <Row>
+                  {recipes.map(recipe => (
+                    <Col md={3} className="mb-4" key={recipe._id}>
+                      <RecipeCard recipe={recipe} />
+                    </Col>
+                  ))}
+                </Row>
+              </>
+            )
           }} />
+
           <Route path="/register" render={() => {
             if (user) return <Redirect to="/" />
             return <Col>
@@ -105,9 +112,16 @@ export class MainView extends React.Component {
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (recipes.length === 0) return <div className="main-view" />;
-            return <Col md={8}>
-              <RecipeView recipe={recipes.find(m => m._id === match.params.recipeId)} onBackClick={() => history.goBack()} />
-            </Col>
+            if (user) return ( 
+              <Row className="justify-content-center">
+                <Col md={12}>
+                  <Navigation onLogOut={() => { this.onLoggedOut() }} />
+                </Col>
+              <Col md={8}>
+                <RecipeView recipe={recipes.find(recipe => recipe._id === match.params.recipeId)} onBackClick={() => history.goBack()} />
+              </Col>
+            </Row>
+            )
           }} />
 
           <Route path="/cuisines/:name" render={({ match, history }) => {
@@ -115,9 +129,16 @@ export class MainView extends React.Component {
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (recipes.length === 0) return <div className="main-view" />;
-            return <Col md={8}>
-              <CuisineView cuisines={recipes.find(m => m.Cuisine.Name === match.params.name).Cuisine} onBackClick={() => history.goBack()} />
-            </Col>
+            if (user) return ( 
+              <Row className="justify-content-center">
+                <Col md={12}>
+                  <Navigation onLogOut={() => { this.onLoggedOut() }} />
+                </Col>
+                <Col md={8}>
+                  <CuisineView cuisines={recipes.find(recipe => recipe.Cuisine.Name === match.params.name).Cuisine} onBackClick={() => history.goBack()} />
+                </Col>
+              </Row>
+            )
           }} />
 
           <Route path="/mealtypes/:name" render={({ match, history }) => {
@@ -125,9 +146,16 @@ export class MainView extends React.Component {
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (recipes.length === 0) return <div className="main-view" />;
-            return <Col md={8}>
-              <MealTypeView mealtypes={recipes.find(m => m.MealType.Name === match.params.name).MealType} onBackClick={() => history.goBack()} />
-            </Col>
+            if (user) return ( 
+              <Row className="justify-content-center">
+                <Col md={12}>
+                <Navigation onLogOut={() => { this.onLoggedOut() }} />
+                </Col>
+                <Col md={8}>
+                  <MealTypeView mealtypes={recipes.find(recipe => recipe.MealType.Name === match.params.name).MealType} onBackClick={() => history.goBack()} />
+                </Col>
+              </Row>
+            )
           }} />
 
           <Route path="/profile" render={({ match, history }) => {
@@ -135,9 +163,16 @@ export class MainView extends React.Component {
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (recipes.length === 0) return <div className="main-view" />;
-            return <Col md={8}>
-              <ProfileView user={user} onBackClick={() => history.goBack()} />
-            </Col>
+            if (user) return (
+              <Row className="justify-content-center">
+                <Col md={12}>
+                <Navigation onLogOut={() => { this.onLoggedOut() }} />
+                </Col>
+                <Col>
+                  <ProfileView user={user} onBackClick={() => history.goBack()} />
+                </Col>
+              </Row>
+            )
           }} />
 
         </Row>

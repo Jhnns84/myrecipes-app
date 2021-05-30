@@ -1,26 +1,33 @@
 import React from 'react';
 
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav'
+import Button from 'react-bootstrap/Button';
 
 export class Navigation extends React.Component {
 
-  render () {
-    const { user } = this.props;
+  render() {
+    const { onLogOut } = this.props;
 
     return (
 
-      <Navbar bg="light" fixed="top" expand="lg">
-        <Navbar.Brand href="#home">My Recipes App</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#home">All Recipes</Nav.Link>
-            <Nav.Link href="#link">Profile</Nav.Link>
-          </Nav>
+      <Nav className="justify-content-center" activeKey="/" >
+        <Nav.Item>
+          <Nav.Link href="/">Recipes</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/profile">Profile</Nav.Link>
+        </Nav.Item>
+        <Nav.Item className="justify-content-end" >
+        <Button variant="link" onClick={() => {onLogOut(null); }}>Logout</Button>
+        </Nav.Item>
+      </Nav>
 
-        </Navbar.Collapse>
-      </Navbar>
+
     )
   }
 }
+
+
+      
+        
+      
