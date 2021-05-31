@@ -169,7 +169,7 @@ export class MainView extends React.Component {
                 <Navigation onLogOut={() => { this.onLoggedOut() }} />
                 </Col>
                 <Col>
-                  <ProfileView user={user} onBackClick={() => history.goBack()} />
+                  <ProfileView user={user} />
                 </Col>
               </Row>
             )

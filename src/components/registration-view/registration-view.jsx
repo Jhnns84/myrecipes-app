@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import { Link } from 'react-router-dom';
@@ -21,21 +20,25 @@ export function RegistrationView(props) {
     formRef.current.reportValidity();
     console.log(formRef.current.reportValidity());
 
-    axios.post('https://jm-myrecipes-api.herokuapp.com/users', {
-      Username: username,
-      Password: password,
-      Email: email,
-      Birthday: birthday
-    })
-    .then(response => {
-      const data = response.data;
-      console.log(data); 
-      window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
-    })
-    .catch(e => {
-      console.log('error registering the user')
-    });
+    let formIsValid = formRef.current.reportValidity();
 
+    if (formIsValid) {
+
+      axios.post('https://jm-myrecipes-api.herokuapp.com/users', {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
+      })
+      .then(response => {
+        const data = response.data;
+        console.log(data); 
+        window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
+      })
+      .catch(e => {
+        console.log('error registering the user')
+      });
+    };
   };
 
   return (
@@ -75,13 +78,3 @@ export function RegistrationView(props) {
     </Row>
   );
 }
-
-RegistrationView.propTypes = {
-  registration: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.string.isRequired
-  }).isRequired,
-  onRegister: PropTypes.func.isRequired
-};

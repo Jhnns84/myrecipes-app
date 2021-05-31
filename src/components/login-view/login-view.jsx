@@ -18,20 +18,25 @@ export function LoginView(props) {
     
     formRef.current.reportValidity();
     console.log(formRef.current.reportValidity());
-    
-    /* Send a request to the server for authentication*/
 
-    axios.post('https://jm-myrecipes-api.herokuapp.com/login', {
-      Username: username,
-      Password: password
-    })
-    .then(response => {
-      const data = response.data;
-      props.onLoggedIn(data);
-    })
-    .catch(e => {
-      console.log('no such user')
-    });
+    let formIsValid = formRef.current.reportValidity();
+
+    if (formIsValid) {
+    
+      /* Send a request to the server for authentication*/
+
+      axios.post('https://jm-myrecipes-api.herokuapp.com/login', {
+        Username: username,
+        Password: password
+      })
+      .then(response => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch(e => {
+        console.log('no such user')
+      });
+    };
   };
 
 
