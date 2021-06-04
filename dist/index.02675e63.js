@@ -35412,38 +35412,56 @@ try {
   require('prop-types');
   var _axios = require('axios');
   var _axiosDefault = _parcelHelpers.interopDefault(_axios);
-  require('react-router-dom');
   var _jsxFileName = "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx", _s = $RefreshSig$();
   function ProfileView(props) {
     _s();
+    const user = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+    const getUser = () => {
+      _axiosDefault.default.get(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    };
+    _reactDefault.default.useEffect(() => {
+      getUser();
+    }, []);
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
     const handleChange = e => {
       e.preventDefault();
-      _axiosDefault.default.put(`https://jm-myrecipes-api.herokuapp.com/users${user}`, {
+      _axiosDefault.default.put(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
         Username: username,
         Password: password,
         Email: email,
         Birthday: birthday
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       }).then(response => {
         const data = response.data;
         console.log(data);
-        window.open('/', '_self');
+        window.open('/profile', '_self');
       }).catch(e => {
-        console.log('error registering the user');
+        console.log('error updating the user-data');
       });
     };
     const deleteUser = e => {
       e.preventDefault();
-      _axiosDefault.default.delete(`https://jm-myrecipes-api.herokuapp.com/users${user}`).then(response => {
-        const data = response.data;
-        props.onLoggedOut(data);
-        console.log(data);
-        window.open('/login', '_self');
+      _axiosDefault.default.delete(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(response => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.open('/', '_self');
       }).catch(e => {
-        console.log('error registering the user');
+        console.log('error deleting the user');
       });
     };
     return (
@@ -35452,7 +35470,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50,
+          lineNumber: 67,
           columnNumber: 5
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
@@ -35460,7 +35478,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51,
+          lineNumber: 68,
           columnNumber: 7
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
@@ -35468,29 +35486,29 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52,
+          lineNumber: 69,
           columnNumber: 9
         }
-      }, "User Profile"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
+      }, user, "'s Profile"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
         md: 8,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53,
+          lineNumber: 70,
           columnNumber: 9
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54,
+          lineNumber: 71,
           columnNumber: 9
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55,
+          lineNumber: 72,
           columnNumber: 11
         }
       }, "Change user details"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
@@ -35498,14 +35516,14 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56,
+          lineNumber: 73,
           columnNumber: 11
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57,
+          lineNumber: 74,
           columnNumber: 13
         }
       }, "Username:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
@@ -35515,7 +35533,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58,
+          lineNumber: 75,
           columnNumber: 13
         }
       })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
@@ -35523,14 +35541,14 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61,
+          lineNumber: 78,
           columnNumber: 11
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62,
+          lineNumber: 79,
           columnNumber: 13
         }
       }, "Password:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
@@ -35540,7 +35558,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63,
+          lineNumber: 80,
           columnNumber: 13
         }
       })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
@@ -35548,14 +35566,14 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66,
+          lineNumber: 83,
           columnNumber: 11
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67,
+          lineNumber: 84,
           columnNumber: 13
         }
       }, "Email:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
@@ -35565,7 +35583,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68,
+          lineNumber: 85,
           columnNumber: 13
         }
       })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
@@ -35573,14 +35591,14 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71,
+          lineNumber: 88,
           columnNumber: 11
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72,
+          lineNumber: 89,
           columnNumber: 13
         }
       }, "Birthday:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
@@ -35589,7 +35607,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73,
+          lineNumber: 90,
           columnNumber: 13
         }
       })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
@@ -35599,7 +35617,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76,
+          lineNumber: 93,
           columnNumber: 11
         }
       }, "Submit")), /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -35607,14 +35625,14 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80,
+          lineNumber: 97,
           columnNumber: 9
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81,
+          lineNumber: 98,
           columnNumber: 11
         }
       }, "Delete user profile")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
@@ -35624,13 +35642,13 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83,
+          lineNumber: 101,
           columnNumber: 9
         }
       }, "Delete"))))
     );
   }
-  _s(ProfileView, "oodxkowr8L/+sgf0pg4pF6PrtNw=");
+  _s(ProfileView, "oUNkuq676fHhMJle5Fi/JkmBMRc=");
   _c = ProfileView;
   var _c;
   $RefreshReg$(_c, "ProfileView");
@@ -35640,7 +35658,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","react-router-dom":"1PMSK","@parcel/transformer-js/lib/esmodule-helpers.js":"1flay","../../../../../../../../../../home/jhnnsm84/.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3W8VV","react-bootstrap/Form":"6A5ko","prop-types":"4dfy5","axios":"7rA65"}],"Tqoul":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","@parcel/transformer-js/lib/esmodule-helpers.js":"1flay","../../../../../../../../../../home/jhnnsm84/.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3W8VV","react-bootstrap/Form":"6A5ko","prop-types":"4dfy5","axios":"7rA65"}],"Tqoul":[function(require,module,exports) {
 var helpers = require("../../../../../../../../../../home/jhnnsm84/.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

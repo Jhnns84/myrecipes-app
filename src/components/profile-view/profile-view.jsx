@@ -6,50 +6,67 @@ import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import { Link } from 'react-router-dom';
-
 export function ProfileView(props) {
+  
+  const user = localStorage.getItem('user');
+  const token = localStorage.getItem('token');
+
+  const getUser = () => {
+    axios.get(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
+    headers: { Authorization: `Bearer ${token}`} });
+  };
+
+  React.useEffect(() => {
+    getUser();
+  }, []);
+  
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ birthday, setBirthday ] = useState('');
 
+
+
   const handleChange = (e) => {
     e.preventDefault();
-    axios.put(`https://jm-myrecipes-api.herokuapp.com/users${user}`, {
+    axios.put(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
       Username: username,
       Password: password,
       Email: email,
       Birthday: birthday
-    })
+      }, { 
+        headers: { Authorization: `Bearer ${token}`} 
+        }
+      )
     .then(response => {
       const data = response.data;
       console.log(data); 
-      window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
+      window.open('/profile', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
     })
     .catch(e => {
-      console.log('error registering the user')
+      console.log('error updating the user-data')
     });
   };
 
   const deleteUser = (e) => {
     e.preventDefault();
-    axios.delete(`https://jm-myrecipes-api.herokuapp.com/users${user}`)
+    axios.delete(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
+      headers: { Authorization: `Bearer ${token}`}
+    })
     .then(response => {
-      const data = response.data;
-      props.onLoggedOut(data);
-      console.log(data); 
-      window.open('/login', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.open('/', '_self');
     })
     .catch(e => {
-      console.log('error registering the user')
+      console.log('error deleting the user')
     });
   };
 
   return (
     <Row className="main-view justify-content-md-center">
       <Col md={12}>
-        <h1 className="mb-4">User Profile</h1>
+        <h1 className="mb-4">{user}'s Profile</h1>
         <Col md={8}>
         <Form>
           <h4>Change user details</h4>
@@ -80,6 +97,7 @@ export function ProfileView(props) {
         <div className="mt-4">
           <h4>Delete user profile</h4>
         </div>
+        
         <Button variant="danger" type="submit" onClick={deleteUser}>
           Delete
         </Button>
