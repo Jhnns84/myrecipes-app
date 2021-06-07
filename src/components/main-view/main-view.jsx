@@ -1,9 +1,16 @@
 import React from 'react';
 import axios from 'axios';
+
+import { connect } from 'react-redux';
+
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
+import { setRecipes } from '../../actions/actions';
+
+import RecipesList from '../recipes-list/recipes-list';
+
 import { LoginView } from '../login-view/login-view';
-import { RecipeCard } from '../recipe-card/recipe-card';
+// import { RecipeCard } from '../recipe-card/recipe-card';
 import { RecipeView } from '../recipe-view/recipe-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { CuisineView } from '../cuisine-view/cuisine-view';
@@ -14,13 +21,13 @@ import { Navigation } from '../navigation/navigation';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
 
   constructor(){
     super();
     // Initial state is set to null
     this.state = {
-      recipes: [],
+      // recipes: [],
       user: null
     };
   }
@@ -40,10 +47,7 @@ export class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
-      // Assign the result to the state
-      this.setState({
-        recipes: response.data
-      });
+      this.props.setRecipes(response.data)
     })
     .catch(function (error) {
       console.log(error);
@@ -74,7 +78,9 @@ export class MainView extends React.Component {
 
 
   render() {
-    const { recipes, user } = this.state;
+    let { recipes } = this.props;
+    let { user } = this.state;
+
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
@@ -90,11 +96,12 @@ export class MainView extends React.Component {
                   <Navigation onLogOut={() => { this.onLoggedOut() }} />
                 </Row>
                 <Row>
-                  {recipes.map(recipe => (
+                  <RecipesList recipes={recipes}/>
+                  {/* {recipes.map(recipe => (
                     <Col md={3} className="mb-4" key={recipe._id}>
                       <RecipeCard recipe={recipe} />
                     </Col>
-                  ))}
+                  ))} */}
                 </Row>
               </>
             )
@@ -180,4 +187,10 @@ export class MainView extends React.Component {
     );
   }
 }
+
+let mapStateToProps = state => {
+  return { recipes: state.recipes }
+}
+
+export default connect(mapStateToProps, { setRecipes} )(MainView);
 

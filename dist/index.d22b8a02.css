@@ -1,6 +1,11 @@
 .my-flix {
   color: steelblue;
 }
+.image-view img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
 .image-wrapper img {
   height: 200px;
   width: 100%;
@@ -10,10 +15,5 @@
 .recipe-text {
   height: 200px;
   overflow: scroll;
-}
-.image-view img {
-  height: 500px;
-  width: 100%;
-  object-fit: cover;
 }
 /*# sourceMappingURL=index.d22b8a02.css.map */
