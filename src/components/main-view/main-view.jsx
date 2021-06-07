@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
-import { setRecipes } from '../../actions/actions';
+import { setRecipes, setUser } from '../../actions/actions';
 
 import RecipesList from '../recipes-list/recipes-list';
 
@@ -28,7 +28,7 @@ class MainView extends React.Component {
     // Initial state is set to null
     this.state = {
       // recipes: [],
-      user: null
+      // user: null
     };
   }
 
@@ -79,7 +79,7 @@ class MainView extends React.Component {
 
   render() {
     let { recipes } = this.props;
-    let { user } = this.state;
+    let { user } = this.props;
 
     return (
       <Router>
@@ -189,8 +189,11 @@ class MainView extends React.Component {
 }
 
 let mapStateToProps = state => {
-  return { recipes: state.recipes }
+  return {
+    recipes: state.recipes,
+    user: state.user
+  }
 }
 
-export default connect(mapStateToProps, { setRecipes} )(MainView);
+export default connect(mapStateToProps, { setRecipes, setUser} )(MainView);
 
