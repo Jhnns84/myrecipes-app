@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { SET_FILTER, SET_RECIPES, SET_USER } from '../actions/actions';
+import { SET_FILTER, SET_RECIPES, SET_FAVORITES, SET_USER, UPDATE_USER } from '../actions/actions';
 
 function visibilityFilter(state='', action) {
   switch (action.type) {
@@ -11,10 +11,18 @@ function visibilityFilter(state='', action) {
   }
 }
 
-
 function recipes(state= [], action) {
   switch (action.type) {
     case SET_RECIPES:
+      return action.value;
+    default: 
+      return state;
+  }
+}
+
+function favoriteRecipes(state= [], action) {
+  switch (action.type) {
+    case SET_FAVORITES:
       return action.value;
     default: 
       return state;
@@ -30,10 +38,21 @@ function user(state= '', action) {
   }
 }
 
+function userUpdate(state= '', action) {
+  switch (action.type) {
+    case UPDATE_USER:
+      return action.value;
+    default:
+      return state;
+  }
+}
+
 const recipesApp = combineReducers({
   visibilityFilter,
   recipes, 
-  user
+  favoriteRecipes,
+  user, 
+  userUpdate
 });
 
 export default recipesApp;

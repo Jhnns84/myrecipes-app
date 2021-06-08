@@ -79,7 +79,7 @@ class MainView extends React.Component {
 
   render() {
     let { recipes } = this.props;
-    let { user } = this.props;
+    let { user } = this.state;
 
     return (
       <Router>
