@@ -4,10 +4,25 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './recipe-view.scss';
+import { connect } from 'react-redux';
+import { setFavorites } from '../../actions/actions';
 
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export class RecipeView extends React.Component {
+
+  addFavorite() {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+    axios.post(`https://jm-myrecipes-api.herokuapp.com/users/${user}` + "/recipes/" + this.props.recipe._id, {}, {
+      headers: { Authorization: `Bearer ${token}`} }
+    )
+    .then((response) => {
+      console.log(response);
+      alert(this.props.recipe.Name + " has been added to your favorite recipes.")
+    })
+  }
 
   render() {
     const { recipe, onBackClick } = this.props;
@@ -50,7 +65,10 @@ export class RecipeView extends React.Component {
               <Card.Text>{recipe.KeyIngredients.join(", ")}</Card.Text>
             </Col>
           </Row>
-          <Button className="mt-4" variant="outline-dark" onClick={() => {onBackClick(null); }}>Back</Button>
+          <Link to={`/recipes/${recipe._id}`}>
+            <Button className="m-4" variant="outline-success"onClick={() => this.addFavorite(recipe)}>Add to favorites</Button>
+          </Link>
+          <Button className="m-4" variant="outline-dark" onClick={() => {onBackClick(null); }}>Back</Button>
         </Card.Body>
       </Card>
       

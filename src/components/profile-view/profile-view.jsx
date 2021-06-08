@@ -6,6 +6,11 @@ import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+
+import { RecipeCard } from '../recipe-card/recipe-card';
+import { Card } from 'react-bootstrap';
+
 export function ProfileView(props) {
   
   const user = localStorage.getItem('user');
@@ -68,7 +73,6 @@ export function ProfileView(props) {
     <Row className="main-view justify-content-md-center">
       <Col md={12}>
         <h1 className="mb-4">{user}'s Profile</h1>
-        <Col md={8}>
         <Form>
           <h4>Change user details</h4>
           <Form.Group controlId="formUsername">
@@ -102,46 +106,17 @@ export function ProfileView(props) {
         <Button variant="danger" type="submit" onClick={deleteUser}>
           Delete
         </Button>
-          </Col>
+        {/* <h4>Your favorite recipes</h4>
+        <Row>
+            {favoriteRecipes.map(recipe => (
+              <Col md={3} className="mb-4" key={recipe._id}>
+                <RecipeCard recipe={recipe} />
+              </Col>
+            ))
+          }
+        </Row> */}
       </Col>
     </Row>
   );
 }
 
-// ProfileView.propTypes = {
-//   registration: PropTypes.shape({
-//     Username: PropTypes.string.isRequired,
-//     Password: PropTypes.string.isRequired,
-//     Email: PropTypes.string.isRequired,
-//     Birthday: PropTypes.string.isRequired
-//   }).isRequired,
-//   onRegister: PropTypes.func.isRequired
-// };
-
-
-
-// import React from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-
-// import { Link } from 'react-router-dom';
-
-// export class ProfileView extends React.Component {
-
-//   render() {
-//     const { user } = this.props;
-
-//     return (
-//       <Card bg = 'light'>
-//         <Card.Body>
-//           <Card.Title>{this.props.user}'s profile</Card.Title>
-            
-//         </Card.Body>
-        
-//       </Card>
-      
-//     );
-//   }
-// }

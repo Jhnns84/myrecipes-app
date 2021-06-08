@@ -35,7 +35,7 @@ class MainView extends React.Component {
   componentDidMount(){
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.setState({
+      this.props.setUser({
         user: localStorage.getItem('user')
       });
       this.getRecipes(accessToken);
@@ -59,7 +59,7 @@ class MainView extends React.Component {
 
   onLoggedIn(authData) {
     console.log(authData);
-    this.setState({
+    this.props.setUser({
       user: authData.user.Username
     });
 
@@ -71,15 +71,12 @@ class MainView extends React.Component {
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    this.setState({
-      user: null
-    });
+    this.props.setUser(null);
   }
 
 
   render() {
-    let { recipes } = this.props;
-    let { user } = this.state;
+    let { recipes, user } = this.props;
 
     return (
       <Router>
