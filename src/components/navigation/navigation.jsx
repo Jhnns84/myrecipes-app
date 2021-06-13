@@ -1,7 +1,10 @@
 import React from 'react';
 
 import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button';
+
+import './navigation.scss';
 
 export class Navigation extends React.Component {
 
@@ -10,17 +13,27 @@ export class Navigation extends React.Component {
 
     return (
 
-      <Nav className="justify-content-center" activeKey="/" >
-        <Nav.Item>
-          <Nav.Link href="/">Recipes</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link href="/profile">Profile</Nav.Link>
-        </Nav.Item>
-        <Nav.Item className="justify-content-end" >
-        <Button variant="link" onClick={() => {onLogOut(null); }}>Logout</Button>
-        </Nav.Item>
-      </Nav>
+      // <Nav className="justify-content-center navbar" activeKey="/" >
+      //   <Nav.Item class="col-md-4">
+      //     <Nav.Link href="/">Recipes</Nav.Link>
+      //   </Nav.Item>
+      //   <Nav.Item class="col-md-4">
+      //     <Nav.Link href="/profile">Profile</Nav.Link>
+      //   </Nav.Item>
+
+      // </Nav>
+
+      <Navbar expand="md" className="rounded navbar" >
+        <Navbar.Brand href="#home">MyRecipes</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="/">Recipes</Nav.Link>
+            <Nav.Link href="/profile">Profile</Nav.Link>
+              <Button variant="link" onClick={() => {onLogOut(null); }}>Logout</Button>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
 
 
     )

@@ -16,20 +16,20 @@ export function ProfileView(props) {
   const user = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
-  const getUser = () => {
-    axios.get(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
-    headers: { Authorization: `Bearer ${token}`} });
-  };
+  // const getUser = () => {
+  //   axios.get(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
+  //   headers: { Authorization: `Bearer ${token}`} });
+  // };
 
   React.useEffect(() => {
-    getUser();
+    // getUser();
+    showFavorites();
   }, []);
   
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ birthday, setBirthday ] = useState('');
-
 
 
   const handleChange = (e) => {
@@ -69,10 +69,23 @@ export function ProfileView(props) {
     });
   };
 
+  const showFavorites = () => {
+    console.log(props, " from profileview");
+    let favoriteRecipes = props.user.favoriteRecipes;
+    console.log(favoriteRecipes);
+    let recipes = props.recipes;
+    console.log(recipes);
+    let matchingRecipes = recipes.filter((recipe) => {
+      return favoriteRecipes.includes(recipe.id);
+    });
+    console.log(matchingRecipes);
+    return matchingRecipes;
+  }
+
   return (
     <Row className="main-view justify-content-md-center">
       <Col md={12}>
-        <h1 className="mb-4">{user}'s Profile</h1>
+        <h1 className="mb-4 mt-4">{user}'s Profile</h1>
         <Form>
           <h4>Change user details</h4>
           <Form.Group controlId="formUsername">
@@ -106,15 +119,15 @@ export function ProfileView(props) {
         <Button variant="danger" type="submit" onClick={deleteUser}>
           Delete
         </Button>
-        {/* <h4>Your favorite recipes</h4>
+        <h4>Your favorite recipes</h4>
         <Row>
-            {favoriteRecipes.map(recipe => (
+            {/* {showFavorites.map(recipe => (
               <Col md={3} className="mb-4" key={recipe._id}>
                 <RecipeCard recipe={recipe} />
               </Col>
             ))
-          }
-        </Row> */}
+          } */}
+        </Row>
       </Col>
     </Row>
   );

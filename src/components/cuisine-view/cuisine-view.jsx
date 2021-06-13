@@ -8,7 +8,7 @@ export class CuisineView extends React.Component {
     const { cuisines, onBackClick } = this.props;
 
     return (
-      <Card bg = 'light'>
+      <Card bg = 'light' style={{ margin: '1em' }}>
         <Card.Body>
           <Card.Title>{cuisines.Name}</Card.Title>
           <Card.Text>{cuisines.Description}</Card.Text>

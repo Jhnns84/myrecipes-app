@@ -18,8 +18,10 @@ import { MealTypeView } from '../mealtype-view/mealtype-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { Navigation } from '../navigation/navigation';
 
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner'
 
 class MainView extends React.Component {
 
@@ -36,7 +38,8 @@ class MainView extends React.Component {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
       this.props.setUser({
-        user: localStorage.getItem('user')
+        user: localStorage.getItem('user'),
+        favoriteRecipes: localStorage.getItem('favoriteRecipes')
       });
       this.getRecipes(accessToken);
     }
@@ -53,18 +56,21 @@ class MainView extends React.Component {
       console.log(error);
     });
   }
-
   
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
 
   onLoggedIn(authData) {
-    console.log(authData);
     this.props.setUser({
-      user: authData.user.Username
+      user: authData.user,
+      // user: authData.user.Username,
+      // favoriteRecipes: authData.user.FavoriteRecipes
     });
+
+    console.log(authData, " is authdata");
 
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
+    // localStorage.setItem('favoriteRecipes', authData.user.FavoriteRecipes);
     this.getRecipes(authData.token);
   }
 
@@ -86,12 +92,25 @@ class MainView extends React.Component {
             if (!user) return <Col>
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
-            if (recipes.length === 0) return <div className="main-view" />;
+            if (recipes.length === 0) return (
+              <Row className="justify-content-center">
+              <Col md={12}>
+                <Navigation onLogOut={() => { this.onLoggedOut() }} />
+              </Col>
+              <Row>
+                <Spinner animation="border" role="status" style={{ margin: '6em' }}>
+                  <span className="sr-only">Loading...</span>
+                </Spinner>
+              </Row>
+            </Row>
+            )
+            
+            ;
             if (user) return (
-              <>
-                <Row>
+              <Row className="justify-content-center">
+                <Col md={12}>
                   <Navigation onLogOut={() => { this.onLoggedOut() }} />
-                </Row>
+                </Col>
                 <Row>
                   <RecipesList recipes={recipes}/>
                   {/* {recipes.map(recipe => (
@@ -100,7 +119,7 @@ class MainView extends React.Component {
                     </Col>
                   ))} */}
                 </Row>
-              </>
+              </Row>
             )
           }} />
 
@@ -121,10 +140,10 @@ class MainView extends React.Component {
                 <Col md={12}>
                   <Navigation onLogOut={() => { this.onLoggedOut() }} />
                 </Col>
-              <Col md={8}>
-                <RecipeView recipe={recipes.find(recipe => recipe._id === match.params.recipeId)} onBackClick={() => history.goBack()} />
-              </Col>
-            </Row>
+                <Col md={10}>
+                  <RecipeView recipe={recipes.find(recipe => recipe._id === match.params.recipeId)} onBackClick={() => history.goBack()} />
+                </Col>
+              </Row>
             )
           }} />
 
@@ -173,7 +192,7 @@ class MainView extends React.Component {
                 <Navigation onLogOut={() => { this.onLoggedOut() }} />
                 </Col>
                 <Col>
-                  <ProfileView user={user} />
+                  <ProfileView user={user} recipes={recipes} />
                 </Col>
               </Row>
             )
@@ -192,5 +211,5 @@ let mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { setRecipes, setUser} )(MainView);
+export default connect(mapStateToProps, { setRecipes, setUser } )(MainView);
 

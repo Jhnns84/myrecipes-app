@@ -45,7 +45,7 @@ export function RegistrationView(props) {
   return (
     <Row className="main-view justify-content-md-center">
       <Col md={6}>
-      <h2>Register to continue</h2>
+      <h2 className="m-4">Please register to continue</h2>
       <Form ref={formRef} onSubmit={e => e.preventDefault()}>
           <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>

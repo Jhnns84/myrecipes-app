@@ -44,7 +44,7 @@ export function LoginView(props) {
   return (
     <Row className="login-view justify-content-md-center">
       <Col md={6}>
-        <h2>Please log in to continue</h2>
+        <h2 className="m-4">Please log in to continue</h2>
         <Form ref={formRef} onSubmit={e => e.preventDefault()}>
           <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>

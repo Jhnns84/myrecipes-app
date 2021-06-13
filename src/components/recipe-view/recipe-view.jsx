@@ -15,7 +15,7 @@ export class RecipeView extends React.Component {
   addFavorite() {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
-    axios.post(`https://jm-myrecipes-api.herokuapp.com/users/${user}` + "/recipes/" + this.props.recipe._id, {}, {
+    axios.put(`https://jm-myrecipes-api.herokuapp.com/users/${user}` + "/recipes/" + this.props.recipe._id, {}, {
       headers: { Authorization: `Bearer ${token}`} }
     )
     .then((response) => {
@@ -28,7 +28,7 @@ export class RecipeView extends React.Component {
     const { recipe, onBackClick } = this.props;
 
     return (
-      <Card bg = 'light'>
+      <Card bg = 'light' style={{ margin: '1em' }}>
         <div className="image-view">
           <Card.Img variant="top" src={recipe.ImagePath} />
         </div>
@@ -66,7 +66,7 @@ export class RecipeView extends React.Component {
             </Col>
           </Row>
           <Link to={`/recipes/${recipe._id}`}>
-            <Button className="m-4" variant="outline-success"onClick={() => this.addFavorite(recipe)}>Add to favorites</Button>
+            <Button className="button-favorite" variant="outline-success"onClick={() => this.addFavorite(recipe)}>Add to favorites</Button>
           </Link>
           <Button className="m-4" variant="outline-dark" onClick={() => {onBackClick(null); }}>Back</Button>
         </Card.Body>

@@ -22,9 +22,10 @@ function RecipesList(props) {
   if (!recipes) return <div className="main-view"/>;
 
   return <>
-  <Col md={12} style={{ margin: '1em' }}>
+  <Col md={6} style={{ margin: '1em' }}>
     <VisibilityFilterInput visibilityFilter={visibilityFilter} />
   </Col>
+  <div className="w-100"></div>
   {filteredRecipes.map(recipe => (
     <Col md={3} className="mb-4" key={recipe._id}>
       <RecipeCard recipe={recipe} />
