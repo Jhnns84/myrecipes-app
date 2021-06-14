@@ -15,6 +15,8 @@ export function ProfileView(props) {
   
   const user = localStorage.getItem('user');
   const token = localStorage.getItem('token');
+  const recipes = props.recipes;
+  const favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
 
   // const getUser = () => {
   //   axios.get(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
@@ -70,15 +72,13 @@ export function ProfileView(props) {
   };
 
   const showFavorites = () => {
-    console.log(props, " from profileview");
-    let favoriteRecipes = props.user.favoriteRecipes;
-    console.log(favoriteRecipes);
-    let recipes = props.recipes;
-    console.log(recipes);
+    console.log(recipes, favoriteRecipes, "recipes and favoriteRecipes from profileview");
+    // let favoriteRecipes = props.user.favoriteRecipes;
+
     let matchingRecipes = recipes.filter((recipe) => {
-      return favoriteRecipes.includes(recipe.id);
+      return favoriteRecipes.includes(recipe._id);
     });
-    console.log(matchingRecipes);
+    console.log(matchingRecipes, "matchingRecipes from profileview" );
     return matchingRecipes;
   }
 
@@ -125,8 +125,7 @@ export function ProfileView(props) {
               <Col md={3} className="mb-4" key={recipe._id}>
                 <RecipeCard recipe={recipe} />
               </Col>
-            ))
-          } */}
+            ))} */}
         </Row>
       </Col>
     </Row>

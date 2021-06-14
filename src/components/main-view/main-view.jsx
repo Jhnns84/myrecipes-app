@@ -70,6 +70,7 @@ class MainView extends React.Component {
 
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
+    localStorage.setItem('favoriteRecipes', JSON.stringify(authData.user.FavoriteRecipes));
     // localStorage.setItem('favoriteRecipes', authData.user.FavoriteRecipes);
     this.getRecipes(authData.token);
   }
