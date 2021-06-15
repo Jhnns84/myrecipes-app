@@ -1,0 +1,30 @@
+.image-wrapper img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.recipe-text {
+  height: 200px;
+  overflow: scroll;
+}
+.image-view img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+.navbar {
+  background-color: #D1DFA5;
+}
+.top-padding {
+  padding-top: 55px;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.5036db3f.css.map */
