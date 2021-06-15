@@ -18,6 +18,8 @@ import { MealTypeView } from '../mealtype-view/mealtype-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { Navigation } from '../navigation/navigation';
 
+import './main-view.scss';
+
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -87,40 +89,36 @@ class MainView extends React.Component {
 
     return (
       <Router>
-        <Row className="main-view justify-content-md-center">
+        <Row className="main-view justify-content-md-center poppins">
           
           <Route exact path="/" render={() => {
             if (!user) return <Col>
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (recipes.length === 0) return (
-              <Row className="justify-content-center">
+              <>
               <Col md={12}>
                 <Navigation onLogOut={() => { this.onLoggedOut() }} />
               </Col>
-              <Row>
+              <Row className="top-padding">
                 <Spinner animation="border" role="status" style={{ margin: '6em' }}>
                   <span className="sr-only">Loading...</span>
                 </Spinner>
               </Row>
-            </Row>
+              </>
             )
             
             ;
             if (user) return (
-              <Row className="justify-content-center">
+              <>
+
                 <Col md={12}>
                   <Navigation onLogOut={() => { this.onLoggedOut() }} />
                 </Col>
-                <Row>
+                <Row className="top-padding">
                   <RecipesList recipes={recipes}/>
-                  {/* {recipes.map(recipe => (
-                    <Col md={3} className="mb-4" key={recipe._id}>
-                      <RecipeCard recipe={recipe} />
-                    </Col>
-                  ))} */}
                 </Row>
-              </Row>
+              </>
             )
           }} />
 
@@ -137,14 +135,14 @@ class MainView extends React.Component {
             </Col>
             if (recipes.length === 0) return <div className="main-view" />;
             if (user) return ( 
-              <Row className="justify-content-center">
+              <>
                 <Col md={12}>
                   <Navigation onLogOut={() => { this.onLoggedOut() }} />
                 </Col>
-                <Col md={10}>
+                <Col  className="top-padding" md={10}>
                   <RecipeView recipe={recipes.find(recipe => recipe._id === match.params.recipeId)} onBackClick={() => history.goBack()} />
                 </Col>
-              </Row>
+              </>
             )
           }} />
 
@@ -154,14 +152,14 @@ class MainView extends React.Component {
             </Col>
             if (recipes.length === 0) return <div className="main-view" />;
             if (user) return ( 
-              <Row className="justify-content-center">
+              <>
                 <Col md={12}>
                   <Navigation onLogOut={() => { this.onLoggedOut() }} />
                 </Col>
-                <Col md={8}>
+                <Col className="top-padding" md={8}>
                   <CuisineView cuisines={recipes.find(recipe => recipe.Cuisine.Name === match.params.name).Cuisine} onBackClick={() => history.goBack()} />
                 </Col>
-              </Row>
+              </>
             )
           }} />
 
@@ -171,14 +169,14 @@ class MainView extends React.Component {
             </Col>
             if (recipes.length === 0) return <div className="main-view" />;
             if (user) return ( 
-              <Row className="justify-content-center">
+              <>
                 <Col md={12}>
                 <Navigation onLogOut={() => { this.onLoggedOut() }} />
                 </Col>
-                <Col md={8}>
+                <Col className="top-padding" md={8}>
                   <MealTypeView mealtypes={recipes.find(recipe => recipe.MealType.Name === match.params.name).MealType} onBackClick={() => history.goBack()} />
                 </Col>
-              </Row>
+              </>
             )
           }} />
 
@@ -188,14 +186,14 @@ class MainView extends React.Component {
             </Col>
             if (recipes.length === 0) return <div className="main-view" />;
             if (user) return (
-              <Row className="justify-content-center">
+              <>
                 <Col md={12}>
                 <Navigation onLogOut={() => { this.onLoggedOut() }} />
                 </Col>
-                <Col>
+                <Col className="top-padding">
                   <ProfileView user={user} recipes={recipes} />
                 </Col>
-              </Row>
+              </>
             )
           }} />
 

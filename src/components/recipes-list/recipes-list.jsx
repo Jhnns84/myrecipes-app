@@ -27,7 +27,7 @@ function RecipesList(props) {
     </Col>
     <div className="w-100"></div>
     {filteredRecipes.map(recipe => (
-      <Col md={3} className="mb-4" key={recipe._id}>
+      <Col sm={6} md={4} lg={3} className="mb-4" key={recipe._id}>
         <RecipeCard recipe={recipe} />
       </Col>
     ))}

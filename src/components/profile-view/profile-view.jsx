@@ -84,7 +84,7 @@ export function ProfileView(props) {
 
   return (
     <Row className="main-view justify-content-md-center">
-      <Col md={12}>
+      <Col md={6}>
         <h1 className="mb-4 mt-4">{user}'s Profile</h1>
         <Form>
           <h4>Change user details</h4>

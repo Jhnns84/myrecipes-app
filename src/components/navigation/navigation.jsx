@@ -13,17 +13,7 @@ export class Navigation extends React.Component {
 
     return (
 
-      // <Nav className="justify-content-center navbar" activeKey="/" >
-      //   <Nav.Item class="col-md-4">
-      //     <Nav.Link href="/">Recipes</Nav.Link>
-      //   </Nav.Item>
-      //   <Nav.Item class="col-md-4">
-      //     <Nav.Link href="/profile">Profile</Nav.Link>
-      //   </Nav.Item>
-
-      // </Nav>
-
-      <Navbar expand="md" className="rounded navbar" >
+      <Navbar expand="sm" className="navbar fixed-top" >
         <Navbar.Brand href="#home">MyRecipes</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

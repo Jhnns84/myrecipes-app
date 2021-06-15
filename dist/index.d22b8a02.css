@@ -19,4 +19,12 @@
 .navbar {
   background-color: #D1DFA5;
 }
+.top-padding {
+  padding-top: 55px;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
 /*# sourceMappingURL=index.d22b8a02.css.map */
