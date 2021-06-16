@@ -83,9 +83,10 @@ export function ProfileView(props) {
   }
 
   return (
-    <Row className="main-view justify-content-md-center">
-      <Col md={6}>
-        <h1 className="mb-4 mt-4">{user}'s Profile</h1>
+    <Row className="main-view justify-content-center">
+      <h1 className="mb-4 mt-4">{user}'s Profile</h1>
+      <div className="w-100"></div>
+      <Col sm={8} lg={7} >
         <Form>
           <h4>Change user details</h4>
           <Form.Group controlId="formUsername">
@@ -112,22 +113,26 @@ export function ProfileView(props) {
             Submit
           </Button>
         </Form>
-        <div className="mt-4">
-          <h4>Delete user profile</h4>
-        </div>
-        
-        <Button variant="danger" type="submit" onClick={deleteUser}>
-          Delete
-        </Button>
-        <h4>Your favorite recipes</h4>
-        <Row>
-            {/* {showFavorites.map(recipe => (
-              <Col md={3} className="mb-4" key={recipe._id}>
+      </Col>
+        <Col sm={4}  md={3}>
+          <div >
+            <h4>Delete user profile</h4>
+          </div>
+          
+          <Button variant="danger" type="submit" onClick={deleteUser}>
+            Delete
+          </Button>
+        </Col>
+
+      <div className="w-100"></div>
+      <h4 className="mb-4 mt-4">Your favorite recipes</h4>
+        <Row className="main-view justify-content-md-center">
+            {showFavorites().map(recipe => (
+              <Col sm={6} md={4} className="mb-4" key={recipe._id}>
                 <RecipeCard recipe={recipe} />
               </Col>
-            ))} */}
+            ))}
         </Row>
-      </Col>
     </Row>
   );
 }
