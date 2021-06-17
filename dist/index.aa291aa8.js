@@ -24833,6 +24833,7 @@ var _actions = require("../../actions/actions");
 var _recipesList = require("../recipes-list/recipes-list");
 var _recipesListDefault = parcelHelpers.interopDefault(_recipesList);
 var _loginView = require("../login-view/login-view");
+// import { RecipeCard } from '../recipe-card/recipe-card';
 var _recipeView = require("../recipe-view/recipe-view");
 var _registrationView = require("../registration-view/registration-view");
 var _cuisineView = require("../cuisine-view/cuisine-view");
@@ -24857,16 +24858,12 @@ class MainView extends _reactDefault.default.Component {
         let accessToken = localStorage.getItem('token');
         if (accessToken !== null) {
             this.props.setUser({
-                user: localStorage.getItem('user')
+                user: localStorage.getItem('user'),
+                favoriteRecipes: localStorage.getItem('favoriteRecipes')
             });
             this.getRecipes(accessToken);
         }
     }
-    // getFavorites() {
-    //   this.props.setFavorites({
-    //     favoriteRecipes: authData.user.FavoriteRecipes
-    //   });
-    // }
     getRecipes(token) {
         _axiosDefault.default.get('https://jm-myrecipes-api.herokuapp.com/recipes', {
             headers: {
@@ -24885,14 +24882,9 @@ class MainView extends _reactDefault.default.Component {
         console.log(authData, " is authdata");
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
-        localStorage.setItem('userData', authData.user);
-        // localStorage.setItem('favoriteRecipes', JSON.stringify(authData.user.FavoriteRecipes));
+        localStorage.setItem('favoriteRecipes', JSON.stringify(authData.user.FavoriteRecipes));
         // localStorage.setItem('favoriteRecipes', authData.user.FavoriteRecipes);
         this.getRecipes(authData.token);
-        this.props.setFavorites({
-            favoriteRecipes: authData.user.FavoriteRecipes
-        });
-        console.log(favoriteRecipes, "from onLoggedIn");
     }
     onLoggedOut() {
         localStorage.removeItem('token');
@@ -24900,18 +24892,18 @@ class MainView extends _reactDefault.default.Component {
         this.props.setUser(null);
     }
     render() {
-        let { recipes , user , favoriteRecipes  } = this.props;
+        let { recipes , user  } = this.props;
         return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 102
+                lineNumber: 91
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             className: "main-view justify-content-md-center poppins",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 103
+                lineNumber: 92
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24952,7 +24944,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 105
+                lineNumber: 94
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24965,7 +24957,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 136
+                lineNumber: 125
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24994,7 +24986,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 143
+                lineNumber: 132
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -25023,7 +25015,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 160
+                lineNumber: 149
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -25052,7 +25044,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 177
+                lineNumber: 166
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -25074,13 +25066,12 @@ class MainView extends _reactDefault.default.Component {
                     className: "top-padding"
                 }, /*#__PURE__*/ _reactDefault.default.createElement(_profileView.ProfileView, {
                     user: user,
-                    recipes: recipes,
-                    favoriteRecipes: favoriteRecipes
+                    recipes: recipes
                 }))));
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 194
+                lineNumber: 183
             },
             __self: this
         }))));
@@ -25089,14 +25080,12 @@ class MainView extends _reactDefault.default.Component {
 let mapStateToProps = (state)=>{
     return {
         recipes: state.recipes,
-        user: state.user,
-        favoriteRecipes: state.favoriteRecipes
+        user: state.user
     };
 };
 exports.default = _reactRedux.connect(mapStateToProps, {
     setRecipes: _actions.setRecipes,
-    setUser: _actions.setUser,
-    setFavorites: _actions.setFavorites
+    setUser: _actions.setUser
 })(MainView);
 
   helpers.postlude(module);
@@ -31437,6 +31426,8 @@ helpers.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
+);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _form = require("react-bootstrap/Form");
@@ -31460,7 +31451,7 @@ function ProfileView(props) {
     const user = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     const recipes = props.recipes;
-    const favoriteRecipes = props.favoriteRecipes;
+    const favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
     // const getUser = () => {
     //   axios.get(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
     //   headers: { Authorization: `Bearer ${token}`} });
@@ -31729,13 +31720,6 @@ function ProfileView(props) {
 }
 _s(ProfileView, "oUNkuq676fHhMJle5Fi/JkmBMRc=");
 _c = ProfileView;
-let mapStateToProps = (state)=>{
-    const { favoriteRecipes  } = state;
-    return {
-        favoriteRecipes
-    };
-};
-exports.default = _reactRedux.connect(mapStateToProps)(ProfileView);
 var _c;
 $RefreshReg$(_c, "ProfileView");
 

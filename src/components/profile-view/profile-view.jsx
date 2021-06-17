@@ -11,12 +11,12 @@ import { connect } from 'react-redux';
 import { RecipeCard } from '../recipe-card/recipe-card';
 import { Card } from 'react-bootstrap';
 
-function ProfileView(props) {
+export function ProfileView(props) {
   
   const user = localStorage.getItem('user');
   const token = localStorage.getItem('token');
   const recipes = props.recipes;
-  const favoriteRecipes = props.favoriteRecipes;
+  const favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
 
   // const getUser = () => {
   //   axios.get(`https://jm-myrecipes-api.herokuapp.com/users/${user}`, {
@@ -137,9 +137,3 @@ function ProfileView(props) {
   );
 }
 
-let mapStateToProps = state => {
-  const { favoriteRecipes } = state;
-  return { favoriteRecipes }
-}
-
-export default connect(mapStateToProps)(ProfileView);

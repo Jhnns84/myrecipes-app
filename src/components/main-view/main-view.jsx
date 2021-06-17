@@ -5,11 +5,12 @@ import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
-import { setRecipes, setUser, setFavorites } from '../../actions/actions';
+import { setRecipes, setUser } from '../../actions/actions';
 
 import RecipesList from '../recipes-list/recipes-list';
 
 import { LoginView } from '../login-view/login-view';
+// import { RecipeCard } from '../recipe-card/recipe-card';
 import { RecipeView } from '../recipe-view/recipe-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { CuisineView } from '../cuisine-view/cuisine-view';
@@ -40,18 +41,11 @@ class MainView extends React.Component {
     if (accessToken !== null) {
       this.props.setUser({
         user: localStorage.getItem('user'),
-        // favoriteRecipes: localStorage.getItem('favoriteRecipes')
+        favoriteRecipes: localStorage.getItem('favoriteRecipes')
       });
-
       this.getRecipes(accessToken);
     }
   }
-
-  // getFavorites() {
-  //   this.props.setFavorites({
-  //     favoriteRecipes: authData.user.FavoriteRecipes
-  //   });
-  // }
 
   getRecipes(token) {
     axios.get('https://jm-myrecipes-api.herokuapp.com/recipes', {
@@ -78,14 +72,9 @@ class MainView extends React.Component {
 
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
-    localStorage.setItem('userData', authData.user);
-    // localStorage.setItem('favoriteRecipes', JSON.stringify(authData.user.FavoriteRecipes));
+    localStorage.setItem('favoriteRecipes', JSON.stringify(authData.user.FavoriteRecipes));
     // localStorage.setItem('favoriteRecipes', authData.user.FavoriteRecipes);
     this.getRecipes(authData.token);
-    this.props.setFavorites({
-      favoriteRecipes: authData.user.FavoriteRecipes
-    });
-    console.log(favoriteRecipes, "from onLoggedIn");
   }
 
   onLoggedOut() {
@@ -96,7 +85,7 @@ class MainView extends React.Component {
 
 
   render() {
-    let { recipes, user, favoriteRecipes } = this.props;
+    let { recipes, user } = this.props;
 
     return (
       <Router>
@@ -202,7 +191,7 @@ class MainView extends React.Component {
                 <Navigation onLogOut={() => { this.onLoggedOut() }} />
                 </Col>
                 <Col className="top-padding">
-                  <ProfileView user={user} recipes={recipes} favoriteRecipes={favoriteRecipes} />
+                  <ProfileView user={user} recipes={recipes} />
                 </Col>
               </>
             )
@@ -217,10 +206,9 @@ class MainView extends React.Component {
 let mapStateToProps = state => {
   return {
     recipes: state.recipes,
-    user: state.user,
-    favoriteRecipes: state.favoriteRecipes
+    user: state.user
   }
 }
 
-export default connect(mapStateToProps, { setRecipes, setUser, setFavorites } )(MainView);
+export default connect(mapStateToProps, { setRecipes, setUser } )(MainView);
 
