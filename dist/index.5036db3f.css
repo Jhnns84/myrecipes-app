@@ -14,8 +14,16 @@
   object-fit: cover;
 }
 .navbar {
-  background-color: #D1DFA5;
+  background-image: linear-gradient(to top right, #DBF4CD, #FFC0AB);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+body {
+  background-image: linear-gradient(to bottom right, #DBF4CD, #FFC0AB);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .top-padding {
   padding-top: 55px;
 }

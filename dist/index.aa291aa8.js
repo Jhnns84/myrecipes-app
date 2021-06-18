@@ -24833,26 +24833,27 @@ var _actions = require("../../actions/actions");
 var _recipesList = require("../recipes-list/recipes-list");
 var _recipesListDefault = parcelHelpers.interopDefault(_recipesList);
 var _loginView = require("../login-view/login-view");
-// import { RecipeCard } from '../recipe-card/recipe-card';
 var _recipeView = require("../recipe-view/recipe-view");
 var _registrationView = require("../registration-view/registration-view");
 var _cuisineView = require("../cuisine-view/cuisine-view");
 var _mealtypeView = require("../mealtype-view/mealtype-view");
 var _profileView = require("../profile-view/profile-view");
 var _navigation = require("../navigation/navigation");
-var _mainViewScss = require("./main-view.scss");
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
 var _spinner = require("react-bootstrap/Spinner");
 var _spinnerDefault = parcelHelpers.interopDefault(_spinner);
+var _mainViewScss = require("./main-view.scss");
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
-        // Initial state is set to null
-        this.state = {
-        };
+    // Initial state is set to null
+    // this.state = {
+    //   recipes: [],
+    //   user: null
+    // };
     }
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
@@ -24883,7 +24884,6 @@ class MainView extends _reactDefault.default.Component {
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         localStorage.setItem('favoriteRecipes', JSON.stringify(authData.user.FavoriteRecipes));
-        // localStorage.setItem('favoriteRecipes', authData.user.FavoriteRecipes);
         this.getRecipes(authData.token);
     }
     onLoggedOut() {
@@ -24896,14 +24896,14 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 91
+                lineNumber: 85
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             className: "main-view justify-content-md-center poppins",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 92
+                lineNumber: 86
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24944,7 +24944,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 94
+                lineNumber: 88
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24957,7 +24957,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 125
+                lineNumber: 119
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24986,7 +24986,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 132
+                lineNumber: 126
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -25015,7 +25015,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 149
+                lineNumber: 143
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -25044,7 +25044,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 166
+                lineNumber: 160
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -25071,7 +25071,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/main-view/main-view.jsx",
-                lineNumber: 183
+                lineNumber: 177
             },
             __self: this
         }))));
@@ -30828,6 +30828,8 @@ var _colDefault = parcelHelpers.interopDefault(_col);
 var _recipeViewScss = require("./recipe-view.scss");
 var _reactRedux = require("react-redux");
 var _actions = require("../../actions/actions");
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactRouterDom = require("react-router-dom");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
@@ -30854,14 +30856,14 @@ class RecipeView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 31
+                lineNumber: 32
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "image-view",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 32
+                lineNumber: 33
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
@@ -30869,52 +30871,52 @@ class RecipeView extends _reactDefault.default.Component {
             src: recipe.ImagePath,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 33
+                lineNumber: 34
             },
             __self: this
         })), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 35
+                lineNumber: 36
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 36
+                lineNumber: 37
             },
             __self: this
         }, recipe.Name), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             className: "mb-4",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 37
+                lineNumber: 38
             },
             __self: this
         }, recipe.Description), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 38
+                lineNumber: 39
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 39
+                lineNumber: 40
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Subtitle, {
             className: "mb-2 text-muted",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 40
+                lineNumber: 41
             },
             __self: this
         }, "Mealtype:"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/mealtypes/${recipe.MealType.Name}`,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 42
+                lineNumber: 43
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -30922,27 +30924,27 @@ class RecipeView extends _reactDefault.default.Component {
             variant: "link",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 43
+                lineNumber: 44
             },
             __self: this
         }, recipe.MealType.Name))), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 46
+                lineNumber: 47
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Subtitle, {
             className: "mb-2 text-muted",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 47
+                lineNumber: 48
             },
             __self: this
         }, "Cuisine:"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/cuisines/${recipe.Cuisine.Name}`,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 49
+                lineNumber: 50
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -30950,79 +30952,79 @@ class RecipeView extends _reactDefault.default.Component {
             variant: "link",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 50
+                lineNumber: 51
             },
             __self: this
         }, recipe.Cuisine.Name))), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 53
+                lineNumber: 54
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Subtitle, {
             className: "mb-2 text-muted",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 54
+                lineNumber: 55
             },
             __self: this
         }, "Difficulty:"), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 55
+                lineNumber: 56
             },
             __self: this
         }, recipe.Difficulty))), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 58
+                lineNumber: 59
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             md: 4,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 59
+                lineNumber: 60
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Subtitle, {
             className: "mb-2 text-muted",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 60
+                lineNumber: 61
             },
             __self: this
         }, "Time to make:"), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 61
+                lineNumber: 62
             },
             __self: this
         }, recipe.Time)), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             md: 8,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 63
+                lineNumber: 64
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Subtitle, {
             className: "mb-2 text-muted",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 64
+                lineNumber: 65
             },
             __self: this
         }, "Key Ingredients:"), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 65
+                lineNumber: 66
             },
             __self: this
         }, recipe.KeyIngredients.join(", ")))), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/recipes/${recipe._id}`,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 68
+                lineNumber: 69
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -31032,7 +31034,7 @@ class RecipeView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 69
+                lineNumber: 70
             },
             __self: this
         }, "Add to favorites")), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -31043,19 +31045,37 @@ class RecipeView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 71
+                lineNumber: 72
             },
             __self: this
         }, "Back"))));
     }
 }
+RecipeView.propTypes = {
+    recipe: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired,
+        Cuisine: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string,
+            Description: _propTypesDefault.default.string
+        }),
+        MealType: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string,
+            Description: _propTypesDefault.default.string
+        }),
+        Difficulty: _propTypesDefault.default.string.isRequired,
+        Time: _propTypesDefault.default.string.isRequired,
+        ImagePath: _propTypesDefault.default.string,
+        Featured: _propTypesDefault.default.bool
+    })
+};
 
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","./recipe-view.scss":"64QXi","react-redux":"7GDa4","../../actions/actions":"5S6cN","react-router-dom":"1PMSK","axios":"7rA65","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"64QXi":[function() {},{}],"7fz5Q":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","./recipe-view.scss":"64QXi","react-redux":"7GDa4","../../actions/actions":"5S6cN","react-router-dom":"1PMSK","axios":"7rA65","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","prop-types":"4dfy5"}],"64QXi":[function() {},{}],"7fz5Q":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31300,6 +31320,8 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 class CuisineView extends _reactDefault.default.Component {
     render() {
         const { cuisines , onBackClick  } = this.props;
@@ -31310,25 +31332,25 @@ class CuisineView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/cuisine-view/cuisine-view.jsx",
-                lineNumber: 11
+                lineNumber: 12
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/cuisine-view/cuisine-view.jsx",
-                lineNumber: 12
+                lineNumber: 13
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/cuisine-view/cuisine-view.jsx",
-                lineNumber: 13
+                lineNumber: 14
             },
             __self: this
         }, cuisines.Name), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/cuisine-view/cuisine-view.jsx",
-                lineNumber: 14
+                lineNumber: 15
             },
             __self: this
         }, cuisines.Description), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -31338,19 +31360,25 @@ class CuisineView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/cuisine-view/cuisine-view.jsx",
-                lineNumber: 15
+                lineNumber: 16
             },
             __self: this
         }, "Back"))));
     }
 }
+CuisineView.propTypes = {
+    Cuisine: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired
+    })
+};
 
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"7AaMC":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","prop-types":"4dfy5"}],"7AaMC":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31367,6 +31395,8 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 class MealTypeView extends _reactDefault.default.Component {
     render() {
         const { mealtypes , onBackClick  } = this.props;
@@ -31377,25 +31407,25 @@ class MealTypeView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/mealtype-view/mealtype-view.jsx",
-                lineNumber: 11
+                lineNumber: 12
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/mealtype-view/mealtype-view.jsx",
-                lineNumber: 12
+                lineNumber: 13
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/mealtype-view/mealtype-view.jsx",
-                lineNumber: 13
+                lineNumber: 14
             },
             __self: this
         }, mealtypes.Name), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/mealtype-view/mealtype-view.jsx",
-                lineNumber: 14
+                lineNumber: 15
             },
             __self: this
         }, mealtypes.Description), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -31405,19 +31435,25 @@ class MealTypeView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/mealtype-view/mealtype-view.jsx",
-                lineNumber: 15
+                lineNumber: 16
             },
             __self: this
         }, "Back"))));
     }
 }
+MealTypeView.propTypes = {
+    MealType: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired
+    })
+};
 
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"0jS8M":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","prop-types":"4dfy5"}],"0jS8M":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

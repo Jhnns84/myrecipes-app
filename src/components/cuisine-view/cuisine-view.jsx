@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import PropTypes from 'prop-types';
 
 export class CuisineView extends React.Component {
 
@@ -19,3 +20,10 @@ export class CuisineView extends React.Component {
     );
   }
 }
+
+CuisineView.propTypes = {
+  Cuisine: PropTypes.shape({
+    Name: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired
+  })
+};

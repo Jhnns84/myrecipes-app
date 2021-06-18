@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import './recipe-view.scss';
 import { connect } from 'react-redux';
 import { setFavorites } from '../../actions/actions';
+import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -75,3 +76,22 @@ export class RecipeView extends React.Component {
     );
   }
 }
+
+RecipeView.propTypes = {
+  recipe: PropTypes.shape({
+    Name: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    Cuisine: PropTypes.shape({
+      Name: PropTypes.string,
+      Description: PropTypes.string
+    }),
+    MealType: PropTypes.shape({
+      Name: PropTypes.string,
+      Description: PropTypes.string
+    }),
+    Difficulty: PropTypes.string.isRequired,
+    Time: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string,
+    Featured: PropTypes.bool
+  })
+};
