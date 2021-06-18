@@ -41652,8 +41652,12 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Navigation", ()=>Navigation
 ); // export class Navigation extends React.Component {
+ //   constructor (props) {
+ //     super (props)
+ //   }
  //   render() {
  //     const { onLogOut } = this.props;
+ //     const user = localStorage.getItem('user');
  //     return (
  //       <Navbar expand="sm" className="navbar fixed-top" >
  //         <Navbar.Brand href="#home">MyRecipes</Navbar.Brand>
@@ -41661,7 +41665,7 @@ parcelHelpers.export(exports, "Navigation", ()=>Navigation
  //         <Navbar.Collapse id="basic-navbar-nav">
  //           <Nav className="mr-auto">
  //             <Nav.Link href="/">Recipes</Nav.Link>
- //             <Nav.Link href="/profile">Profile</Nav.Link>
+ //             <Nav.Link href={`/profile/${user}`}>Profile</Nav.Link>
  //               <Button variant="link" onClick={() => {onLogOut(null); }}>Logout</Button>
  //           </Nav>
  //         </Navbar.Collapse>
@@ -41679,60 +41683,56 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _navigationScss = require("./navigation.scss");
 class Navigation extends _reactDefault.default.Component {
-    constructor(props){
-        super(props);
-    }
     render() {
         const { onLogOut  } = this.props;
-        const user = localStorage.getItem('user');
         return(/*#__PURE__*/ _reactDefault.default.createElement(_navbarDefault.default, {
             expand: "sm",
             className: "navbar fixed-top",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/navigation/navigation.jsx",
-                lineNumber: 20
+                lineNumber: 16
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_navbarDefault.default.Brand, {
             href: "#home",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/navigation/navigation.jsx",
-                lineNumber: 21
+                lineNumber: 17
             },
             __self: this
         }, "MyRecipes"), /*#__PURE__*/ _reactDefault.default.createElement(_navbarDefault.default.Toggle, {
             "aria-controls": "basic-navbar-nav",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/navigation/navigation.jsx",
-                lineNumber: 22
+                lineNumber: 18
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_navbarDefault.default.Collapse, {
             id: "basic-navbar-nav",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/navigation/navigation.jsx",
-                lineNumber: 23
+                lineNumber: 19
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_navDefault.default, {
             className: "mr-auto",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/navigation/navigation.jsx",
-                lineNumber: 24
+                lineNumber: 20
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_navDefault.default.Link, {
             href: "/",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/navigation/navigation.jsx",
-                lineNumber: 25
+                lineNumber: 21
             },
             __self: this
         }, "Recipes"), /*#__PURE__*/ _reactDefault.default.createElement(_navDefault.default.Link, {
-            href: `/profile/${user}`,
+            href: "/profile",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/navigation/navigation.jsx",
-                lineNumber: 26
+                lineNumber: 22
             },
             __self: this
         }, "Profile"), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -41742,7 +41742,7 @@ class Navigation extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/navigation/navigation.jsx",
-                lineNumber: 27
+                lineNumber: 23
             },
             __self: this
         }, "Logout")))));

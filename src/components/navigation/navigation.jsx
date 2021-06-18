@@ -7,13 +7,9 @@ import Button from 'react-bootstrap/Button';
 import './navigation.scss';
 
 export class Navigation extends React.Component {
-  constructor (props) {
-    super (props)
-  }
 
   render() {
     const { onLogOut } = this.props;
-    const user = localStorage.getItem('user');
 
     return (
 
@@ -23,7 +19,7 @@ export class Navigation extends React.Component {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/">Recipes</Nav.Link>
-            <Nav.Link href={`/profile/${user}`}>Profile</Nav.Link>
+            <Nav.Link href="/profile">Profile</Nav.Link>
               <Button variant="link" onClick={() => {onLogOut(null); }}>Logout</Button>
           </Nav>
         </Navbar.Collapse>
@@ -34,10 +30,15 @@ export class Navigation extends React.Component {
   }
 }
 
+
 // export class Navigation extends React.Component {
+//   constructor (props) {
+//     super (props)
+//   }
 
 //   render() {
 //     const { onLogOut } = this.props;
+//     const user = localStorage.getItem('user');
 
 //     return (
 
@@ -47,7 +48,7 @@ export class Navigation extends React.Component {
 //         <Navbar.Collapse id="basic-navbar-nav">
 //           <Nav className="mr-auto">
 //             <Nav.Link href="/">Recipes</Nav.Link>
-//             <Nav.Link href="/profile">Profile</Nav.Link>
+//             <Nav.Link href={`/profile/${user}`}>Profile</Nav.Link>
 //               <Button variant="link" onClick={() => {onLogOut(null); }}>Logout</Button>
 //           </Nav>
 //         </Navbar.Collapse>
@@ -57,7 +58,3 @@ export class Navigation extends React.Component {
 //     )
 //   }
 // }
-
-      
-        
-      
