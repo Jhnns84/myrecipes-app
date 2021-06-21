@@ -1,0 +1,10 @@
+.image-wrapper img {
+  height: 200px; 
+  width: 100%; 
+  object-fit: cover; // this ensures that the image crops instead of stretching
+};
+
+.recipe-text {
+  height: 200px; 
+  overflow: scroll; // this ensures that if the content exceeds the allowed height, then it will scroll.
+};

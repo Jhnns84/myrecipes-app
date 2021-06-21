@@ -1,0 +1,38 @@
+.image-view img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+.image-wrapper img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.recipe-text {
+  height: 200px;
+  overflow: scroll;
+}
+.navbar {
+  background-image: linear-gradient(to top right, #DBF4CD, #FFC0AB);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+body {
+  background-image: linear-gradient(to bottom right, #DBF4CD, #FFC0AB);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.top-padding {
+  padding-top: 55px;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.eb25d7ad.css.map */
