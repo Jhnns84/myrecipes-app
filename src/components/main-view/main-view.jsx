@@ -48,7 +48,7 @@ class MainView extends React.Component {
       this.props.setRecipes(response.data)
     })
     .catch(function (error) {
-      console.log(error);
+      console.error(error);
     });
   }
   

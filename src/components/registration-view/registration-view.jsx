@@ -34,10 +34,10 @@ export function RegistrationView(props) {
       .then(response => {
         const data = response.data;
         console.log(data); 
-        window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
+        window.open('/', '_self'); 
       })
       .catch(e => {
-        console.log('error registering the user')
+        console.error('error registering the user')
       });
     };
   };
@@ -51,22 +51,18 @@ export function RegistrationView(props) {
             <Form.Label>Username:</Form.Label>
             <Form.Control type="text" placeholder="Enter username" onChange={e => setUsername(e.target.value)} required />
           </Form.Group>
-
           <Form.Group controlId="formPassword">
             <Form.Label>Password:</Form.Label>
             <Form.Control type="password" placeholder="Enter password" onChange={e => setPassword(e.target.value)} required />
           </Form.Group>
-
           <Form.Group controlId="formEmail">
             <Form.Label>Email:</Form.Label>
             <Form.Control type="text" placeholder="Enter email" onChange={e => setEmail(e.target.value)} required />
           </Form.Group>
-
           <Form.Group controlId="formBirthday">
             <Form.Label>Birthday:</Form.Label>
             <Form.Control type="date" onChange={e => setBirthday(e.target.value)} required />
           </Form.Group>
-
           <Button variant="primary" type="submit" onClick={handleRegister}>
             Submit
           </Button>
@@ -79,7 +75,6 @@ export function RegistrationView(props) {
     </Row>
   );
 }
-
 
 RegistrationView.propTypes = {
   user: PropTypes.shape({

@@ -21920,7 +21920,7 @@ class MainView extends _reactDefault.default.Component {
         }).then((response)=>{
             this.props.setRecipes(response.data);
         }).catch(function(error) {
-            console.log(error);
+            console.error(error);
         });
     }
     /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/ onLoggedIn(authData) {
@@ -23550,7 +23550,7 @@ function LoginView(props) {
             const data = response.data;
             props.onLoggedIn(data);
         }).catch((e1)=>{
-            console.log('no such user');
+            console.error('no such user');
         });
     };
     return(/*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
@@ -28423,8 +28423,6 @@ var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
 var _recipeViewScss = require("./recipe-view.scss");
-var _reactRedux = require("react-redux");
-var _actions = require("../../actions/actions");
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactRouterDom = require("react-router-dom");
@@ -28454,14 +28452,14 @@ class RecipeView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 33
+                lineNumber: 31
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "image-view",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 34
+                lineNumber: 32
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
@@ -28469,52 +28467,52 @@ class RecipeView extends _reactDefault.default.Component {
             src: recipe.ImagePath,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 35
+                lineNumber: 33
             },
             __self: this
         })), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 37
+                lineNumber: 35
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 38
+                lineNumber: 36
             },
             __self: this
         }, recipe.Name), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             className: "mb-4",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 39
+                lineNumber: 37
             },
             __self: this
         }, recipe.Description), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 40
+                lineNumber: 38
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 41
+                lineNumber: 39
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Subtitle, {
             className: "mb-2 text-muted",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 42
+                lineNumber: 40
             },
             __self: this
         }, "Mealtype:"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/mealtypes/${recipe.MealType.Name}`,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 44
+                lineNumber: 41
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -28522,27 +28520,27 @@ class RecipeView extends _reactDefault.default.Component {
             variant: "link",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 45
+                lineNumber: 42
             },
             __self: this
         }, recipe.MealType.Name))), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 48
+                lineNumber: 45
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Subtitle, {
             className: "mb-2 text-muted",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 49
+                lineNumber: 46
             },
             __self: this
         }, "Cuisine:"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/cuisines/${recipe.Cuisine.Name}`,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 51
+                lineNumber: 47
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -28550,36 +28548,56 @@ class RecipeView extends _reactDefault.default.Component {
             variant: "link",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 52
+                lineNumber: 48
             },
             __self: this
         }, recipe.Cuisine.Name))), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 55
+                lineNumber: 51
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Subtitle, {
             className: "mb-2 text-muted",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 56
+                lineNumber: 52
             },
             __self: this
         }, "Difficulty:"), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 57
+                lineNumber: 53
             },
             __self: this
         }, recipe.Difficulty))), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 60
+                lineNumber: 56
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             md: 4,
+            __source: {
+                fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
+                lineNumber: 57
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Subtitle, {
+            className: "mb-2 text-muted",
+            __source: {
+                fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
+                lineNumber: 58
+            },
+            __self: this
+        }, "Time to make:"), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
+            __source: {
+                fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
+                lineNumber: 59
+            },
+            __self: this
+        }, recipe.Time)), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+            md: 8,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
                 lineNumber: 61
@@ -28592,37 +28610,17 @@ class RecipeView extends _reactDefault.default.Component {
                 lineNumber: 62
             },
             __self: this
-        }, "Time to make:"), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
-            __source: {
-                fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 63
-            },
-            __self: this
-        }, recipe.Time)), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
-            md: 8,
-            __source: {
-                fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 65
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Subtitle, {
-            className: "mb-2 text-muted",
-            __source: {
-                fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 66
-            },
-            __self: this
         }, "Key Ingredients:"), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 67
+                lineNumber: 63
             },
             __self: this
         }, recipe.KeyIngredients.join(", ")))), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/recipes/${recipe._id}`,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 70
+                lineNumber: 66
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -28632,7 +28630,7 @@ class RecipeView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 71
+                lineNumber: 67
             },
             __self: this
         }, "Add to favorites")), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -28643,7 +28641,7 @@ class RecipeView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-view/recipe-view.jsx",
-                lineNumber: 73
+                lineNumber: 69
             },
             __self: this
         }, "Back"))));
@@ -28673,7 +28671,7 @@ RecipeView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","./recipe-view.scss":"64QXi","react-redux":"7GDa4","../../actions/actions":"5S6cN","prop-types":"4dfy5","react-router-dom":"1PMSK","axios":"7rA65"}],"1CZWQ":[function(require,module,exports) {
+},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","./recipe-view.scss":"64QXi","prop-types":"4dfy5","react-router-dom":"1PMSK","axios":"7rA65"}],"1CZWQ":[function(require,module,exports) {
 "use strict";
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 exports.__esModule = true;
@@ -28844,7 +28842,235 @@ var _default = CardImg;
 exports.default = _default;
 module.exports = exports["default"];
 
-},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S"}],"64QXi":[function() {},{}],"7GDa4":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S"}],"64QXi":[function() {},{}],"7fz5Q":[function(require,module,exports) {
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _row = require("react-bootstrap/Row");
+var _rowDefault = parcelHelpers.interopDefault(_row);
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+function RegistrationView(props) {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [email, setEmail] = _react.useState('');
+    const [birthday, setBirthday] = _react.useState('');
+    const formRef = _react.useRef(null);
+    const handleRegister = (e)=>{
+        e.preventDefault();
+        formRef.current.reportValidity();
+        console.log(formRef.current.reportValidity());
+        let formIsValid = formRef.current.reportValidity();
+        if (formIsValid) _axiosDefault.default.post('https://jm-myrecipes-api.herokuapp.com/users', {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        }).then((response)=>{
+            const data = response.data;
+            console.log(data);
+            window.open('/', '_self');
+        }).catch((e1)=>{
+            console.error('error registering the user');
+        });
+    };
+    return(/*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
+        className: "main-view justify-content-md-center",
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 46
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+        md: 6,
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 47
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
+        className: "m-4",
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 48
+        },
+        __self: this
+    }, "Please register to continue"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
+        ref: formRef,
+        onSubmit: (e)=>e.preventDefault()
+        ,
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 49
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formUsername",
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 50
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 51
+        },
+        __self: this
+    }, "Username:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "text",
+        placeholder: "Enter username",
+        onChange: (e)=>setUsername(e.target.value)
+        ,
+        required: true,
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 52
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formPassword",
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 54
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 55
+        },
+        __self: this
+    }, "Password:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "password",
+        placeholder: "Enter password",
+        onChange: (e)=>setPassword(e.target.value)
+        ,
+        required: true,
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 56
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formEmail",
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 58
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 59
+        },
+        __self: this
+    }, "Email:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "text",
+        placeholder: "Enter email",
+        onChange: (e)=>setEmail(e.target.value)
+        ,
+        required: true,
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 60
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formBirthday",
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 62
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 63
+        },
+        __self: this
+    }, "Birthday:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "date",
+        onChange: (e)=>setBirthday(e.target.value)
+        ,
+        required: true,
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 64
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        variant: "primary",
+        type: "submit",
+        onClick: handleRegister,
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 66
+        },
+        __self: this
+    }, "Submit")), /*#__PURE__*/ _reactDefault.default.createElement("h6", {
+        className: "mt-4",
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 70
+        },
+        __self: this
+    }, "Already have an account?"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+        to: `/`,
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 71
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        className: "mt-2",
+        variant: "outline-secondary",
+        __source: {
+            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
+            lineNumber: 72
+        },
+        __self: this
+    }, "Log in here")))));
+}
+_s(RegistrationView, "EZ5Ky77owp8bVGqj0r26zCDZdko=");
+_c = RegistrationView;
+RegistrationView.propTypes = {
+    user: _propTypesDefault.default.shape({
+        Username: _propTypesDefault.default.string.isRequired,
+        Password: _propTypesDefault.default.string.isRequired,
+        Email: _propTypesDefault.default.string.isRequired,
+        Birthday: _propTypesDefault.default.string.isRequired
+    })
+};
+var _c;
+$RefreshReg$(_c, "RegistrationView");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"3b2NM","prop-types":"4dfy5","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","axios":"7rA65","react-router-dom":"1PMSK"}],"7GDa4":[function(require,module,exports) {
 "use strict";
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 exports.__esModule = true;
@@ -30188,235 +30414,7 @@ function updateUser(value) {
     };
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"367CR"}],"7fz5Q":[function(require,module,exports) {
-var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
-);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _form = require("react-bootstrap/Form");
-var _formDefault = parcelHelpers.interopDefault(_form);
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _row = require("react-bootstrap/Row");
-var _rowDefault = parcelHelpers.interopDefault(_row);
-var _col = require("react-bootstrap/Col");
-var _colDefault = parcelHelpers.interopDefault(_col);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactRouterDom = require("react-router-dom");
-var _s = $RefreshSig$();
-function RegistrationView(props) {
-    _s();
-    const [username, setUsername] = _react.useState('');
-    const [password, setPassword] = _react.useState('');
-    const [email, setEmail] = _react.useState('');
-    const [birthday, setBirthday] = _react.useState('');
-    const formRef = _react.useRef(null);
-    const handleRegister = (e)=>{
-        e.preventDefault();
-        formRef.current.reportValidity();
-        console.log(formRef.current.reportValidity());
-        let formIsValid = formRef.current.reportValidity();
-        if (formIsValid) _axiosDefault.default.post('https://jm-myrecipes-api.herokuapp.com/users', {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
-        }).then((response)=>{
-            const data = response.data;
-            console.log(data);
-            window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
-        }).catch((e1)=>{
-            console.log('error registering the user');
-        });
-    };
-    return(/*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
-        className: "main-view justify-content-md-center",
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 46
-        },
-        __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
-        md: 6,
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 47
-        },
-        __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
-        className: "m-4",
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 48
-        },
-        __self: this
-    }, "Please register to continue"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
-        ref: formRef,
-        onSubmit: (e)=>e.preventDefault()
-        ,
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 49
-        },
-        __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
-        controlId: "formUsername",
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 50
-        },
-        __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 51
-        },
-        __self: this
-    }, "Username:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
-        type: "text",
-        placeholder: "Enter username",
-        onChange: (e)=>setUsername(e.target.value)
-        ,
-        required: true,
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 52
-        },
-        __self: this
-    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
-        controlId: "formPassword",
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 55
-        },
-        __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 56
-        },
-        __self: this
-    }, "Password:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
-        type: "password",
-        placeholder: "Enter password",
-        onChange: (e)=>setPassword(e.target.value)
-        ,
-        required: true,
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 57
-        },
-        __self: this
-    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
-        controlId: "formEmail",
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 60
-        },
-        __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 61
-        },
-        __self: this
-    }, "Email:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
-        type: "text",
-        placeholder: "Enter email",
-        onChange: (e)=>setEmail(e.target.value)
-        ,
-        required: true,
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 62
-        },
-        __self: this
-    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
-        controlId: "formBirthday",
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 65
-        },
-        __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 66
-        },
-        __self: this
-    }, "Birthday:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
-        type: "date",
-        onChange: (e)=>setBirthday(e.target.value)
-        ,
-        required: true,
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 67
-        },
-        __self: this
-    })), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-        variant: "primary",
-        type: "submit",
-        onClick: handleRegister,
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 70
-        },
-        __self: this
-    }, "Submit")), /*#__PURE__*/ _reactDefault.default.createElement("h6", {
-        className: "mt-4",
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 74
-        },
-        __self: this
-    }, "Already have an account?"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
-        to: `/`,
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 75
-        },
-        __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-        className: "mt-2",
-        variant: "outline-secondary",
-        __source: {
-            fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/registration-view/registration-view.jsx",
-            lineNumber: 76
-        },
-        __self: this
-    }, "Log in here")))));
-}
-_s(RegistrationView, "EZ5Ky77owp8bVGqj0r26zCDZdko=");
-_c = RegistrationView;
-RegistrationView.propTypes = {
-    user: _propTypesDefault.default.shape({
-        Username: _propTypesDefault.default.string.isRequired,
-        Password: _propTypesDefault.default.string.isRequired,
-        Email: _propTypesDefault.default.string.isRequired,
-        Birthday: _propTypesDefault.default.string.isRequired
-    })
-};
-var _c;
-$RefreshReg$(_c, "RegistrationView");
-
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"3b2NM","prop-types":"4dfy5","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","axios":"7rA65","react-router-dom":"1PMSK"}],"2qQmT":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"367CR"}],"2qQmT":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30582,40 +30580,40 @@ class RecipeCard extends _reactDefault.default.Component {
             className: "image-wrapper",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-card/recipe-card.jsx",
-                lineNumber: 16
+                lineNumber: 15
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
             src: recipe.ImagePath,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-card/recipe-card.jsx",
-                lineNumber: 17
+                lineNumber: 16
             },
             __self: this
         })), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-card/recipe-card.jsx",
-                lineNumber: 19
+                lineNumber: 18
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-card/recipe-card.jsx",
-                lineNumber: 20
+                lineNumber: 19
             },
             __self: this
         }, recipe.Name), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/recipes/${recipe._id}`,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-card/recipe-card.jsx",
-                lineNumber: 22
+                lineNumber: 20
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
             variant: "outline-dark",
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/recipe-card/recipe-card.jsx",
-                lineNumber: 23
+                lineNumber: 21
             },
             __self: this
         }, "Open")))));
@@ -30856,11 +30854,10 @@ function ProfileView(props) {
             }
         }).then((response)=>{
             const data = response.data;
-            console.log(data);
             localStorage.setItem('user', data.Username);
             window.open('/profile', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
         }).catch((e1)=>{
-            console.log('error updating the user-data');
+            console.error('error updating the user-data');
         });
     };
     const deleteUser = (e)=>{
@@ -30874,37 +30871,34 @@ function ProfileView(props) {
             localStorage.removeItem('user');
             window.open('/', '_self');
         }).catch((e1)=>{
-            console.log('error deleting the user');
+            console.error('error deleting the user');
         });
     };
     const showFavorites = ()=>{
-        console.log(recipes, favoriteRecipes, "recipes and favoriteRecipes from profileview");
-        // let favoriteRecipes = props.user.favoriteRecipes;
         let matchingRecipes = recipes.filter((recipe)=>{
             return favoriteRecipes.includes(recipe._id);
         });
-        console.log(matchingRecipes, "matchingRecipes from profileview");
         return matchingRecipes;
     };
     return(/*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
         className: "main-view justify-content-center",
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 86
+            lineNumber: 81
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
         className: "mb-4 mt-4",
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 87
+            lineNumber: 82
         },
         __self: this
     }, user, "'s Profile"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
         className: "w-100",
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 88
+            lineNumber: 83
         },
         __self: this
     }), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
@@ -30912,32 +30906,32 @@ function ProfileView(props) {
         lg: 7,
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 89
+            lineNumber: 84
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 90
+            lineNumber: 85
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement("h4", {
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 91
+            lineNumber: 86
         },
         __self: this
     }, "Change user details"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
         controlId: "formUsername",
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 92
+            lineNumber: 87
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 93
+            lineNumber: 88
         },
         __self: this
     }, "Username:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
@@ -30947,20 +30941,20 @@ function ProfileView(props) {
         ,
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 94
+            lineNumber: 89
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
         controlId: "formPassword",
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 97
+            lineNumber: 91
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 98
+            lineNumber: 92
         },
         __self: this
     }, "Password:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
@@ -30970,20 +30964,20 @@ function ProfileView(props) {
         ,
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 99
+            lineNumber: 93
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
         controlId: "formEmail",
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 102
+            lineNumber: 95
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 103
+            lineNumber: 96
         },
         __self: this
     }, "Email:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
@@ -30993,20 +30987,20 @@ function ProfileView(props) {
         ,
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 104
+            lineNumber: 97
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
         controlId: "formBirthday",
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 107
+            lineNumber: 99
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 108
+            lineNumber: 100
         },
         __self: this
     }, "Birthday:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
@@ -31015,7 +31009,7 @@ function ProfileView(props) {
         ,
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 109
+            lineNumber: 101
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -31024,7 +31018,7 @@ function ProfileView(props) {
         onClick: handleChange,
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 112
+            lineNumber: 103
         },
         __self: this
     }, "Submit"))), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
@@ -31032,19 +31026,19 @@ function ProfileView(props) {
         md: 3,
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 117
+            lineNumber: 108
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 118
+            lineNumber: 109
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement("h4", {
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 119
+            lineNumber: 110
         },
         __self: this
     }, "Delete user profile")), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -31053,28 +31047,28 @@ function ProfileView(props) {
         onClick: deleteUser,
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 122
+            lineNumber: 112
         },
         __self: this
     }, "Delete")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
         className: "w-100",
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 127
+            lineNumber: 116
         },
         __self: this
     }), /*#__PURE__*/ _reactDefault.default.createElement("h4", {
         className: "mb-4 mt-4",
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 128
+            lineNumber: 117
         },
         __self: this
     }, "Your favorite recipes"), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
         className: "main-view justify-content-md-center",
         __source: {
             fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-            lineNumber: 129
+            lineNumber: 118
         },
         __self: this
     }, showFavorites().map((recipe)=>/*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
@@ -31084,14 +31078,14 @@ function ProfileView(props) {
             key: recipe._id,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-                lineNumber: 131
+                lineNumber: 120
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_recipeCard.RecipeCard, {
             recipe: recipe,
             __source: {
                 fileName: "/mnt/c/Users/jmess/Documents/careerfoundry/myrecipes-app/src/components/profile-view/profile-view.jsx",
-                lineNumber: 132
+                lineNumber: 121
             },
             __self: this
         }))

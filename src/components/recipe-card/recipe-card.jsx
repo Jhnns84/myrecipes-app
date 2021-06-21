@@ -12,13 +12,11 @@ export class RecipeCard extends React.Component {
     
     return (
       <Card bg = 'light'>
-        {/* <Card.Img variant="top" src={recipe.ImagePath} /> */}
         <div className="image-wrapper">
           <img src={recipe.ImagePath} />
         </div>
         <Card.Body>
           <Card.Title>{recipe.Name}</Card.Title>
-          {/* <Card.Text className="recipe-text">{recipe.Description}</Card.Text> */}
           <Link to={`/recipes/${recipe._id}`}>
             <Button variant="outline-dark">Open</Button>
           </Link>

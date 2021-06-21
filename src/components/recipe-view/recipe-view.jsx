@@ -4,8 +4,6 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './recipe-view.scss';
-import { connect } from 'react-redux';
-import { setFavorites } from '../../actions/actions';
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
@@ -40,14 +38,12 @@ export class RecipeView extends React.Component {
           <Row>
             <Col>
               <Card.Subtitle className="mb-2 text-muted">Mealtype:</Card.Subtitle>
-              {/* <Card.Text>{recipe.MealType.Name}</Card.Text> */}
               <Link to={`/mealtypes/${recipe.MealType.Name}`}>
                 <Button className="mb-3" variant="link">{recipe.MealType.Name}</Button>
               </Link>
             </Col>
             <Col>
               <Card.Subtitle className="mb-2 text-muted">Cuisine:</Card.Subtitle>
-              {/* <Card.Text>{recipe.Cuisine.Name}</Card.Text> */}
               <Link to={`/cuisines/${recipe.Cuisine.Name}`}>
                 <Button className="mb-3" variant="link">{recipe.Cuisine.Name}</Button>
               </Link>

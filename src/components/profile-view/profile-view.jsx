@@ -47,12 +47,11 @@ export function ProfileView(props) {
       )
     .then(response => {
       const data = response.data;
-      console.log(data); 
       localStorage.setItem('user', data.Username);
       window.open('/profile', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab   
     })
     .catch(e => {
-      console.log('error updating the user-data')
+      console.error('error updating the user-data')
     });
   };
 
@@ -67,18 +66,14 @@ export function ProfileView(props) {
       window.open('/', '_self');
     })
     .catch(e => {
-      console.log('error deleting the user')
+      console.error('error deleting the user')
     });
   };
 
   const showFavorites = () => {
-    console.log(recipes, favoriteRecipes, "recipes and favoriteRecipes from profileview");
-    // let favoriteRecipes = props.user.favoriteRecipes;
-
     let matchingRecipes = recipes.filter((recipe) => {
       return favoriteRecipes.includes(recipe._id);
     });
-    console.log(matchingRecipes, "matchingRecipes from profileview" );
     return matchingRecipes;
   }
 
@@ -93,47 +88,40 @@ export function ProfileView(props) {
             <Form.Label>Username:</Form.Label>
             <Form.Control type="text" placeholder="Change username" onChange={e => setUsername(e.target.value)} />
           </Form.Group>
-
           <Form.Group controlId="formPassword">
             <Form.Label>Password:</Form.Label>
             <Form.Control type="password" placeholder="Change password" onChange={e => setPassword(e.target.value)} />
           </Form.Group>
-
           <Form.Group controlId="formEmail">
             <Form.Label>Email:</Form.Label>
             <Form.Control type="text" placeholder="Change email" onChange={e => setEmail(e.target.value)} />
           </Form.Group>
-
           <Form.Group controlId="formBirthday">
             <Form.Label>Birthday:</Form.Label>
             <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
           </Form.Group>
-
           <Button variant="primary" type="submit" onClick={handleChange}>
             Submit
           </Button>
         </Form>
       </Col>
-        <Col sm={4}  md={3}>
-          <div >
-            <h4>Delete user profile</h4>
-          </div>
-          
-          <Button variant="danger" type="submit" onClick={deleteUser}>
-            Delete
-          </Button>
-        </Col>
-
+      <Col sm={4}  md={3}>
+        <div >
+          <h4>Delete user profile</h4>
+        </div>
+        <Button variant="danger" type="submit" onClick={deleteUser}>
+          Delete
+        </Button>
+      </Col>
       <div className="w-100"></div>
       <h4 className="mb-4 mt-4">Your favorite recipes</h4>
-        <Row className="main-view justify-content-md-center">
-            {showFavorites().map(recipe => (
-              <Col sm={6} md={4} className="mb-4" key={recipe._id}>
-                <RecipeCard recipe={recipe} />
-              </Col>
-            ))}
-        </Row>
+      <Row className="main-view justify-content-md-center">
+          {showFavorites().map(recipe => (
+            <Col sm={6} md={4} className="mb-4" key={recipe._id}>
+              <RecipeCard recipe={recipe} />
+            </Col>
+          ))}
+      </Row>
     </Row>
   );
 }
-
